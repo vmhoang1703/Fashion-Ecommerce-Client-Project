@@ -11,7 +11,9 @@ export class AuthService {
   private loggedIn$ = new BehaviorSubject<boolean>(false);
   private fullname$ = new BehaviorSubject<string | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.checkLocalStorage();
+  }
 
   get isLoggedIn(): Observable<boolean> {
     return this.loggedIn$.asObservable();
@@ -39,6 +41,30 @@ export class AuthService {
         }
       })
     );
+  }
+
+  private checkLocalStorage() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      this.loggedIn$.next(true);
+
+      this.http
+        .get(`${this.baseUrl}/user`, {
+          headers: {
+            Authorization: `${token}`,
+          },
+        })
+        .subscribe(
+          (response: any) => {
+            this.fullname$.next(response.user.fullname);
+          },
+          (error) => {
+            console.log(error);
+            this.logout();
+          }
+        );
+    }
   }
 
   logout(): void {
