@@ -13,6 +13,7 @@ import { AuthService } from './services/auth.service';
 import { RegisterModalService } from './services/register-modal.service';
 import { LoginModalService } from './services/login-modal.service';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthService, RegisterModalService, LoginModalService],
   bootstrap: [AppComponent]

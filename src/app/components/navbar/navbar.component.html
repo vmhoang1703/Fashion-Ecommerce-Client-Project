@@ -30,15 +30,33 @@
       </div>
     </div>
 
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <ul class="nav col-12 col-md-4 mb-2 justify-content-center mb-md-0">
       <li><a routerLink="/" class="nav-link px-3">Trang chủ</a></li>
       <li><a routerLink="/collection" class="nav-link px-3">Bộ sưu tập</a></li>
       <li><a routerLink="/blog" class="nav-link px-3">Blog</a></li>
       <li><a routerLink="/about-us" class="nav-link px-3">Về chúng tôi</a></li>
     </ul>
 
-    <div class="col-md-4 text-end" *ngIf="!isLoggedIn; else userSection">
+    <div class="col-md-1 d-flex justify-content-end align-items-center">
       <img
+          src="assets/heart.png"
+          class="me-4"
+          alt="heart icon"
+          width="22px"
+          height="22px"
+        />
+
+        <img
+          src="assets/shopping-bag.png"
+          class="me-2"
+          alt="cart icon"
+          width="22px"
+          height="22px"
+        />
+    </div>
+
+    <div class="col-md-auto text-end" *ngIf="!isLoggedIn; else userSection">
+      <!-- <img
         src="assets/heart.png"
         class="me-3"
         alt="heart icon"
@@ -51,7 +69,7 @@
         alt="cart icon"
         width="22px"
         height="22px"
-      />
+      /> -->
 
       <button
         type="button"
@@ -75,8 +93,8 @@
 
     <!-- User section -->
     <ng-template #userSection>
-      <div class="col-md-4 text-end">
-        <img
+      <div class="col-md-auto text-end user-section">
+        <!-- <img
           src="assets/heart.png"
           class="me-3"
           alt="heart icon"
@@ -90,17 +108,40 @@
           alt="cart icon"
           width="22px"
           height="22px"
-        />
+        /> -->
 
-        <span class="me-3"><span class="dancing-font welcome-text">Xin chào,</span> {{ fullname }}</span>
+        <span class="me-3"
+          ><span class="dancing-font welcome-text">Xin chào,</span>
+          {{ fullname }}
+        </span>
 
-        <!-- <button
-          type="button"
-          class="btn btn-outline-primary me-2"
-          (click)="logout()"
-        >
-          Đăng xuất
-        </button> -->
+        <div class="hover-items text-center">
+          <button
+            type="button"
+            class="btn btn-link text-decoration-none"
+            style="color: black; margin-bottom: -10px"
+          >
+            Tài khoản
+          </button>
+
+          <hr />
+
+          <button
+            type="button"
+            class="btn btn-link text-decoration-none"
+            style="color: black; margin-top: -10px"
+            (click)="logout()"
+          >
+            <img
+              src="assets/logout.png"
+              class="me-1"
+              alt="Logout icon"
+              width="20px"
+              height="20px"
+            />
+            Đăng xuất
+          </button>
+        </div>
       </div>
     </ng-template>
   </header>
