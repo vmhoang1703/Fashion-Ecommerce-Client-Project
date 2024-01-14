@@ -7,14 +7,14 @@
         <div class="col-md-3">
           <a
             routerLink="/"
-            class="d-inline-flex link-body-emphasis text-decoration-none"
+            class="d-inline-flex link-body-emphasis text-decoration-none ms-3"
           >
             <img
               src="assets/logo.jpg"
               alt="Phuong Fashion logo"
-              width="60"
-              height="60"
-              class="rounded-circle me-2"
+              width="55"
+              height="55"
+              class="rounded-circle"
             />
           </a>
         </div>
@@ -37,40 +37,30 @@
       <li><a routerLink="/about-us" class="nav-link px-3">Về chúng tôi</a></li>
     </ul>
 
-    <div class="col-md-1 d-flex justify-content-end align-items-center">
-      <img
-          src="assets/heart.png"
-          class="me-4"
-          alt="heart icon"
-          width="22px"
-          height="22px"
+    <div class="col-md-2 text-end">
+      <form class="d-flex">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Tìm kiếm"
+          aria-label="Search"
         />
-
-        <img
-          src="assets/shopping-bag.png"
-          class="me-2"
-          alt="cart icon"
-          width="22px"
-          height="22px"
-        />
+        <button class="btn" type="submit">
+          <img
+            src="assets/search.png"
+            alt="search icon"
+            width="22px"
+            height="22px"
+          />
+        </button>
+      </form>
     </div>
 
-    <div class="col-md-auto text-end" *ngIf="!isLoggedIn; else userSection">
-      <!-- <img
-        src="assets/heart.png"
-        class="me-3"
-        alt="heart icon"
-        width="22px"
-        height="22px"
-      />
-      <img
-        src="assets/shopping-bag.png"
-        class="me-4"
-        alt="cart icon"
-        width="22px"
-        height="22px"
-      /> -->
-
+    <!-- Login and register buttons -->
+    <div
+      class="col-md-auto text-end me-3"
+      *ngIf="!isLoggedIn; else userSection"
+    >
       <button
         type="button"
         class="btn btn-outline-primary me-2 btn-login"
@@ -93,24 +83,8 @@
 
     <!-- User section -->
     <ng-template #userSection>
-      <div class="col-md-auto text-end user-section">
-        <!-- <img
-          src="assets/heart.png"
-          class="me-3"
-          alt="heart icon"
-          width="22px"
-          height="22px"
-        />
-
-        <img
-          src="assets/shopping-bag.png"
-          class="me-4"
-          alt="cart icon"
-          width="22px"
-          height="22px"
-        /> -->
-
-        <span class="me-3"
+      <div class="col-md-auto col-12 text-center user-section me-3">
+        <span
           ><span class="dancing-font welcome-text">Xin chào,</span>
           {{ fullname }}
         </span>
@@ -119,9 +93,53 @@
           <button
             type="button"
             class="btn btn-link text-decoration-none"
+            style="color: black"
+          >
+            <img
+              src="assets/user.png"
+              class="me-1"
+              alt="user icon"
+              width="17px"
+              height="17px"
+              style="margin-top: -3px"
+            />
+            <span class="text-item">Tài khoản</span>
+          </button>
+
+          <br />
+
+          <button
+            type="button"
+            class="btn btn-link text-decoration-none"
+            style="color: black"
+          >
+            <img
+              src="assets/shopping-bag.png"
+              class="me-1"
+              alt="cart icon"
+              width="17px"
+              height="17px"
+              style="margin-left: -3px; margin-top: -3px"
+            />
+            <span class="text-item">Giỏ hàng</span>
+          </button>
+
+          <br />
+
+          <button
+            type="button"
+            class="btn btn-link text-decoration-none"
             style="color: black; margin-bottom: -10px"
           >
-            Tài khoản
+            <img
+              src="assets/heart.png"
+              class="me-1"
+              alt="heart icon"
+              width="17px"
+              height="17px"
+              style="margin-top: -3px"
+            />
+            <span class="text-item">Yêu thích</span>
           </button>
 
           <hr />
@@ -129,7 +147,7 @@
           <button
             type="button"
             class="btn btn-link text-decoration-none"
-            style="color: black; margin-top: -10px"
+            style="color: #eb6763; margin-top: -10px"
             (click)="logout()"
           >
             <img
@@ -139,7 +157,7 @@
               width="20px"
               height="20px"
             />
-            Đăng xuất
+            <span class="text-item">Đăng xuất</span>
           </button>
         </div>
       </div>

@@ -62,4 +62,11 @@
 .user-section:hover .hover-items {
   display: block;
   right: 0;
+  z-index: 1;
+}
+
+.text-item {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 5px;
 }

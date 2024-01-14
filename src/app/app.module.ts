@@ -14,6 +14,7 @@ import { RegisterModalService } from './services/register-modal.service';
 import { LoginModalService } from './services/login-modal.service';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
