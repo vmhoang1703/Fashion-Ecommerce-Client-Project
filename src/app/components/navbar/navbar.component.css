@@ -1,0 +1,40 @@
+#brand {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.nav-link {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: #f58539;
+}
+
+.btn-login {
+  border-color: #46362e;
+  color: black;
+}
+
+.btn-login:hover {
+  background-color: #46362e;
+  color: white;
+}
+
+.btn-login:hover:active {
+  border-color: #46362e;
+}
+
+.btn-register {
+  background-color: #46362e;
+  border-color: #46362e;
+  color: white;
+}
+
+.btn-register:active {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}

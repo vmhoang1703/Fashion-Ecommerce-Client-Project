@@ -1,0 +1,115 @@
+<div
+  class="modal fade"
+  id="registerModal"
+  tabindex="-1"
+  aria-labelledby="registerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="registerModalLabel">Đăng Ký Tài Khoản</h5> -->
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeRegisterModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mt-2 pb-5">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-12">
+              <div class="mx-3">
+                <p class="text-center signup-text">ĐĂNG KÝ</p>
+                <p class="text-center mt-3">
+                  Bạn đã có tài khoản?
+                  <button
+                    (click)="openLoginModal()"
+                    class="btn btn-link text-decoration-none login-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                  >
+                    Đăng nhập
+                  </button>
+                </p>
+
+                <div class="mt-4">
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                      <label for="fullname" class="form-label"
+                        >Họ và tên:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="fullname"
+                        name="fullname"
+                        formControlName="fullname"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="registerEmail" class="form-label"
+                        >Email:</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="registerEmail"
+                        name="email"
+                        formControlName="email"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="registerPassword" class="form-label"
+                        >Mật khẩu:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="registerPassword"
+                        name="password"
+                        formControlName="password"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label"
+                        >Xác nhận mật khẩu:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        formControlName="confirmPassword"
+                        required
+                      />
+                    </div>
+                    <!-- <p>Complete the form to enable button.</p> -->
+
+                    <div class="d-flex justify-content-center">
+                      <button
+                        type="submit"
+                        class="btn btn-primary btn-block mt-3 signup-btn px-4 py-2"
+                        (click)="closeRegisterModal()"
+                      >
+                        Đăng Ký
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

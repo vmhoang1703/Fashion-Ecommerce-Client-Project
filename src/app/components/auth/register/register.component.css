@@ -1,0 +1,21 @@
+.signup-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.signup-btn {
+  background-color: #46362e;
+  border-color: #46362e;
+  color: white;
+}
+
+.signup-btn:active {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.login-btn {
+  margin-bottom: 5.5px;
+  margin-left: -10px;
+}

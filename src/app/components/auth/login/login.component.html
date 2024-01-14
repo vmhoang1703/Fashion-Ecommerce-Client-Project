@@ -1,0 +1,123 @@
+<div
+  class="modal fade login-modal" 
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5> -->
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeLoginModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mt-2 pb-5">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-12">
+              <div class="mx-3">
+                <p class="text-center signin-text">ĐĂNG NHẬP</p>
+                <p class="text-center mt-3">
+                  Bạn chưa có tài khoản?
+                  <button
+                    (click)="openRegisterModal()"
+                    class="btn btn-link text-decoration-none register-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#registerModal"
+                  >
+                    Đăng ký
+                  </button>
+                </p>
+
+                <div class="mt-4">
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                      <label for="loginEmail" class="form-label">Email:</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="loginEmail"
+                        name="email"
+                        formControlName="email"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="loginPassword" class="form-label"
+                        >Mật khẩu:</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="loginPassword"
+                        name="password"
+                        formControlName="password"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-check text-start my-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="remember-me"
+                        id="flexCheckDefault"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Remember me
+                      </label>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                      <button
+                        type="submit"
+                        class="btn btn-primary px-4 py-2 signin-btn"
+                      >
+                        Đăng nhập
+                      </button>
+                    </div>
+                  </form>
+
+                  <div
+                    class="text-center mt-5 d-flex justify-content-center mb-2"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-light btn-outline-secondary me-3 flex-grow-1"
+                    >
+                      <img
+                        src="assets/google.png"
+                        alt="Google Logo"
+                        class="logo-img"
+                        width="25"
+                        height="25"
+                      />
+                      <span class="ms-2">Google</span>
+                    </button>
+                    <button type="button" class="btn btn-primary flex-grow-1">
+                      <img
+                        src="assets/facebook.png"
+                        alt="Facebook Logo"
+                        class="logo-img"
+                        width="25"
+                        height="25"
+                      />
+                      <span class="ms-2">Facebook</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

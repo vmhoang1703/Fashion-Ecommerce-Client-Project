@@ -1,0 +1,107 @@
+<div class="mx-4">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+  >
+    <div class="col-md-3 mb-2 mb-md-0 text-center">
+      <div class="row align-items-center">
+        <div class="col-md-3">
+          <a
+            routerLink="/"
+            class="d-inline-flex link-body-emphasis text-decoration-none"
+          >
+            <img
+              src="assets/logo.jpg"
+              alt="Phuong Fashion logo"
+              width="60"
+              height="60"
+              class="rounded-circle me-2"
+            />
+          </a>
+        </div>
+        <div class="col-md-9">
+          <a
+            routerLink="/"
+            class="text-decoration-none"
+            id="brand"
+            style="color: black"
+            >Phương Fashion</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a routerLink="/" class="nav-link px-3">Trang chủ</a></li>
+      <li><a routerLink="/collection" class="nav-link px-3">Bộ sưu tập</a></li>
+      <li><a routerLink="/blog" class="nav-link px-3">Blog</a></li>
+      <li><a routerLink="/about-us" class="nav-link px-3">Về chúng tôi</a></li>
+    </ul>
+
+    <div class="col-md-4 text-end" *ngIf="!isLoggedIn; else userSection">
+      <img
+        src="assets/heart.png"
+        class="me-3"
+        alt="heart icon"
+        width="22px"
+        height="22px"
+      />
+      <img
+        src="assets/shopping-bag.png"
+        class="me-4"
+        alt="cart icon"
+        width="22px"
+        height="22px"
+      />
+
+      <button
+        type="button"
+        class="btn btn-outline-primary me-2 btn-login"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal"
+        (click)="openLoginModal()"
+      >
+        Đăng nhập
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn-register"
+        data-bs-toggle="modal"
+        data-bs-target="#registerModal"
+        (click)="openRegisterModal()"
+      >
+        Đăng ký
+      </button>
+    </div>
+
+    <!-- User section -->
+    <ng-template #userSection>
+      <div class="col-md-4 text-end">
+        <img
+          src="assets/heart.png"
+          class="me-3"
+          alt="heart icon"
+          width="22px"
+          height="22px"
+        />
+
+        <img
+          src="assets/shopping-bag.png"
+          class="me-4"
+          alt="cart icon"
+          width="22px"
+          height="22px"
+        />
+
+        <span class="me-3">Xin chào, {{ fullname }}</span>
+
+        <!-- <button
+          type="button"
+          class="btn btn-outline-primary me-2"
+          (click)="logout()"
+        >
+          Đăng xuất
+        </button> -->
+      </div>
+    </ng-template>
+  </header>
+</div>
