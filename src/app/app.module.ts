@@ -15,6 +15,10 @@ import { LoginModalService } from './services/login-modal.service';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
+import { CardComponent } from './components/card/card.component';
+import { ProductService } from './services/product.service';
+import { CollectionComponent } from './components/collection/collection.component';
+import { CollectionCardComponent } from './components/collection-card/collection-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import { FooterComponent } from './components/footer/footer.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent,
+    CollectionComponent,
+    CollectionCardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService, RegisterModalService, LoginModalService],
+  providers: [AuthService, RegisterModalService, LoginModalService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

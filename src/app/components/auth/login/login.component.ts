@@ -6,6 +6,7 @@ import { RegisterModalService } from 'src/app/services/register-modal.service';
 import { LoginModalService } from 'src/app/services/login-modal.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router'; // Import Router
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-login',

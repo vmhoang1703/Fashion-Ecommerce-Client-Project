@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { RegisterModalService } from 'src/app/services/register-modal.service';
 import { LoginModalService } from 'src/app/services/login-modal.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
   isLoggedIn!: boolean;
   fullname!: string | null;
+  isFixedHeader = false;
 
   constructor(
     private registerModalService: RegisterModalService,
@@ -38,5 +39,11 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isFixedHeader = offset > 50;
   }
 }

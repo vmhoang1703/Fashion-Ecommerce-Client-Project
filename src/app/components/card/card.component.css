@@ -1,0 +1,35 @@
+.heart-icon {
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  z-index: 1;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+}
+
+.product-img {
+  transition: transform 0.3s ease-in-out;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.product-img:hover {
+  transform: scale(1.1);
+}
+
+.product-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

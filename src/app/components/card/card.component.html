@@ -1,0 +1,22 @@
+<div class="card product-card" style="width: 17rem">
+  <img
+    (click)="toggleHeart()"
+    [src]="heartIconSrc"
+    class="heart-icon"
+    alt="heart icon"
+    width="23px"
+    height="23px"
+  />
+  <img
+    [src]="'assets/' + product.image"
+    class="card-img-top mt-4 mb-3 product-img"
+    alt="{{ product.name }} Image"  
+  />
+  <div class="card-body mx-4">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text" style="color: red">{{ product.price | currency:'VND':'symbol':'1.0-0' }}</p>
+    <p class="card-text" style="margin-top: -10px;">Đã bán: {{ product.sold }}</p>
+    <!-- <p class="card-text">{{ product.description }}</p> -->
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>

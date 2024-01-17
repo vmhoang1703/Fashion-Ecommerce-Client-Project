@@ -1,3 +1,25 @@
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 0.7s ease-in-out;
+}
+
 #brand {
   font-size: 2rem;
   font-weight: 300;
@@ -18,7 +40,7 @@
 
 .btn-login {
   border-color: #46362e;
-  color: black;
+  color: #46362e;
 }
 
 .btn-login:hover {
@@ -36,6 +58,12 @@
   color: white;
 }
 
+.btn-register:hover {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
 .btn-register:active {
   background-color: white;
   color: #46362e;
@@ -49,6 +77,7 @@
 
 .user-section {
   position: relative;
+  cursor: pointer;
 }
 
 .hover-items {

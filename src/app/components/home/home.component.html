@@ -1,17 +1,29 @@
 <div
   id="carouselExampleAutoplaying"
-  class="carousel slide carousel-fade carousel-slider"
+  class="carousel slide carousel-fade carousel-slider py-3 border-top"
   data-bs-ride="carousel"
 >
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/carouselimg1.jpg" class="d-block w-100" alt="Carousel image 1" />
+      <img
+        src="assets/carouselimg1.jpg"
+        class="d-block w-100"
+        alt="Carousel image 1"
+      />
     </div>
     <div class="carousel-item">
-      <img src="assets/carouselimg2.png" class="d-block w-100" alt="Carousel image 2" />
+      <img
+        src="assets/carouselimg2.png"
+        class="d-block w-100"
+        alt="Carousel image 2"
+      />
     </div>
     <div class="carousel-item">
-      <img src="assets/carouselimg3.jpg" class="d-block w-100" alt="Carousel image 3" />
+      <img
+        src="assets/carouselimg3.jpg"
+        class="d-block w-100"
+        alt="Carousel image 3"
+      />
     </div>
   </div>
   <button
@@ -32,4 +44,163 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+
+<div class="container">
+  <div class="container marketing">
+    <div class="row text-center my-5">
+      <p class="title mb-5 dancing-font">NGỌC PHƯƠNG DESIGNER</p>
+      <div class="col-lg-4">
+        <img
+          class="bd-placeholder-img rounded-circle"
+          width="140"
+          height="140"
+          src="assets/vedep.jpg"
+        />
+        <h1 class="fw-normal my-2 dancing-font">Vẻ đẹp</h1>
+        <p>
+          "Vẻ đẹp của bạn là sứ mệnh của tôi". <br />
+          Phương Fashion sẽ giúp bạn khám phá vẻ đẹp của bản thân. Trải nghiệm
+          sự tinh tế và lôi cuốn trong từng chi tiết, đường nét của sản phẩm.
+        </p>
+        <p><a class="btn btn-details pb-2" href="#">Xem thêm »</a></p>
+      </div>
+
+      <div class="col-lg-4">
+        <img
+          class="bd-placeholder-img rounded-circle"
+          width="140"
+          height="140"
+          src="assets/uytin.jpg"
+        />
+        <h1 class="fw-normal my-2 dancing-font">Uy tín</h1>
+        <p>
+          Uy tín là kim chỉ nam của chúng tôi. Với nhiều năm kinh nghiệm và sự
+          tin cậy, chúng tôi cam kết mang đến cho bạn những sản phẩm chất lượng
+          và dịch vụ hoàn hảo.
+        </p>
+        <p><a class="btn btn-details pb-2" href="#">Xem thêm »</a></p>
+      </div>
+
+      <div class="col-lg-4">
+        <img
+          class="bd-placeholder-img rounded-circle"
+          width="140"
+          height="140"
+          src="assets/chatluong.jpg"
+        />
+        <h1 class="fw-normal my-2 dancing-font">Chất lượng</h1>
+        <p>
+          Chất lượng không chỉ là cam kết, mà là tâm huyết của chúng tôi. Mỗi
+          sản phẩm được sản xuất với chất liệu tốt nhất và kiểm định chặt chẽ để
+          đảm bảo sự hài lòng tối đa của khách hàng.
+        </p>
+        <p><a class="btn btn-details pb-2" href="#">Xem thêm »</a></p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="featurette-divider" />
+
+  <!-- Collection intro -->
+  <div class="masthead mb-5">
+    <div class="container">
+      <div class="masthead-subheading">
+        Chào mừng đến với Bộ sưu tập của chúng tôi!
+      </div>
+      <div class="masthead-heading text-uppercase">
+        Vẻ đẹp của bạn là sứ mệnh của tôi
+      </div>
+      <a class="btn btn-xl text-uppercase btn-explore" href="#services"
+        >Khám phá</a
+      >
+    </div>
+  </div>
+
+  <!-- Sản phẩm bán chạy -->
+  <div class="row mt-5 mb-3">
+    <h2 class="col-md-6 dancing-font best-seller">Sản phẩm bán chạy</h2>
+    <h4
+      class="col-md-6 dancing-font best-seller text-end d-flex align-items-end justify-content-end"
+      style="cursor: pointer"
+    >
+      Xem thêm
+      <span
+        class="dancing-font mx-1"
+        style="font-size: 2.3rem; margin-bottom: -5px"
+        >>></span
+      >
+    </h4>
+  </div>
+  <div class="card-group">
+    <app-card
+      *ngFor="let product of bestSellerProducts"
+      [product]="product"
+      class="col-md-4 col-sm-6 col-xs-12 my-3 d-flex align-items-stretch justify-content-center"
+    ></app-card>
+  </div>
+
+  <!-- Testimonial -->
+  <h2 class="dancing-font mt-5 mb-4 best-seller">Cảm nhận của khách hàng</h2>
+  <div class="row g-2">
+    <div class="col-md-4">
+      <div class="testimonial-card p-3 text-center px-4">
+        <div class="user-image">
+          <img
+            src="https://i.imgur.com/PKHvlRS.jpg"
+            class="rounded-circle"
+            width="80"
+          />
+        </div>
+
+        <div class="user-content">
+          <h4 class="my-2">Bruce Hardy</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="testimonial-card p-3 text-center px-4">
+        <div class="user-image">
+          <img
+            src="https://i.imgur.com/w2CKRB9.jpg"
+            class="rounded-circle"
+            width="80"
+          />
+        </div>
+
+        <div class="user-content">
+          <h4 class="my-2">Mark Smith</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="testimonial-card p-3 text-center px-4">
+        <div class="user-image">
+          <img
+            src="https://i.imgur.com/ACeArwY.jpg"
+            class="rounded-circle"
+            width="80"
+          />
+        </div>
+
+        <div class="user-content">
+          <h4 class="my-2">Veera Duncan</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
