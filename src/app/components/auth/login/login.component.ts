@@ -8,6 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router'; // Import Router
 import { HomeComponent } from '../../home/home.component';
 
+//Import interface
+import { User } from '../../../models/user';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
+      const loginData: User = this.loginForm.value;
 
       this.authService.login(loginData).subscribe(
         (response) => {

@@ -1,0 +1,61 @@
+<div class="container card shadow mb-4">
+  <div class="card-header py-3 row">
+    <h2 class="h3 col-md-9 mb-2 text-gray-800">Quản lý Bộ sưu tập</h2>
+    <button
+      class="btn col-md-3 btn-custom"
+      [routerLink]="['/admin/collections/create']"
+    >
+      Thêm bộ sưu tập
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered row-border hover" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Mô tả</th>
+            <th style="width: 17%;">Tổng sản phẩm</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>STT</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Mô tả</th>
+            <th>Tổng sản phẩm</th>
+            <th></th>
+          </tr>
+        <tbody>
+          <tr *ngFor="let collection of collections; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <img
+                *ngIf="collection.imageUrl"
+                [src]="collection.imageUrl"
+                alt="{{ collection.title }} image"
+                width="100"
+                height="auto"
+              />
+            </td>
+            <td>{{ collection.title }}</td>
+            <td>{{ collection.description }}</td>
+            <td>{{ collection.products.length }}</td>
+            <td>
+              <button
+                class="btn btn-danger"
+                (click)="deleteCollection(collection._id)"
+              >
+                Xóa
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 class="mb-3">Trang thêm bộ sưu tập</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="createCollectionForm">
+    <div class="form-group mb-4">
+      <label for="title">Tên:</label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="title"
+        name="title"
+        formControlName="title"
+        required
+      />
+    </div>
+    <div class="form-group mb-4">
+      <label for="description">Mô tả:</label>
+      <textarea
+        class="form-control mt-2"
+        id="description"
+        name="description"
+        formControlName="description"
+        required
+      ></textarea>
+    </div>
+    <div class="form-group mb-4">
+      <label for="imageUrl">Tải ảnh lên: </label>
+      <input
+        type="file"
+        class="form-control mt-2"
+        id="imageUrl"
+        name="imageUrl"
+        (change)="onFileSelected($event)"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-custom">Tạo bộ sưu tập</button>
+  </form>
+</div>

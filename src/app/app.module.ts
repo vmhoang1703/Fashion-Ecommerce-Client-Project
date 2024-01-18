@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,10 @@ import { CardComponent } from './components/card/card.component';
 import { ProductService } from './services/product.service';
 import { CollectionComponent } from './components/collection/collection.component';
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
+import { AdminCreateCollectionComponent } from './components/admin/admin-collection/admin-create-collection/admin-create-collection.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +34,19 @@ import { CollectionCardComponent } from './components/collection-card/collection
     FooterComponent,
     CardComponent,
     CollectionComponent,
-    CollectionCardComponent
+    CollectionCardComponent,
+    AdminDashboardComponent,
+    AdminComponent,
+    AdminCollectionComponent,
+    AdminCreateCollectionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [AuthService, RegisterModalService, LoginModalService, ProductService],
   bootstrap: [AppComponent]

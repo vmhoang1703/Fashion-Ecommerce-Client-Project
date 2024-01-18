@@ -7,6 +7,9 @@ import { RegisterModalService } from 'src/app/services/register-modal.service'; 
 import { LoginModalService } from 'src/app/services/login-modal.service'; // Import LoginModalService
 import { Router } from '@angular/router'; // Import Router
 
+// Import interface
+import { User } from '../../../models/user';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -34,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      const userData = this.registerForm.value;
+      const userData: User = this.registerForm.value;
       console.log(userData);
       this.authService.register(userData).subscribe(
         (response) => {

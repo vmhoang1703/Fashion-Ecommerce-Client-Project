@@ -2,17 +2,19 @@
   <div class="row g-0">
     <div class="col-md-5 my-2 d-flex align-items-center justify-content-center">
       <img
-        src="assets/aodaicuoi.jpeg"
+        *ngIf="collection.imageUrl"
+        [src]="collection.imageUrl"
         class="img-fluid rounded-start"
-        alt="..."
+        alt=" {{ collection.title }} image}}"
+        width="150"
+        height="150"
       />
     </div>
     <div class="col-md-7 d-flex align-items-center justify-content-center">
       <div class="card-body">
-        <h4 class="card-title">Áo dài</h4>
+        <h4 class="card-title">{{ collection.title }}</h4>
         <p class="card-text">
-          Áo dài là trang phục truyền thống của Việt Nam, là biểu tượng của vẻ
-          đẹp lịch sự và truyền thống.
+          {{ collection.description }}
         </p>
         <button type="button" class="btn btn-xemsp">Xem các sản phẩm</button>
       </div>
