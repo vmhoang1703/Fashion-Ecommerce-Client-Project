@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -8,8 +8,10 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:5000/api/auth';
+
   private loggedIn$ = new BehaviorSubject<boolean>(false);
   private fullname$ = new BehaviorSubject<string | null>(null);
+  private isAdmin$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
     this.checkLocalStorage();
@@ -23,6 +25,22 @@ export class AuthService {
     return this.fullname$.asObservable();
   }
 
+  get isAdmin(): Observable<boolean> {
+    return this.isAdmin$.asObservable();
+  }
+
+  get isLoggedInValue(): boolean {
+    return this.loggedIn$.getValue();
+  }
+
+  get currentFullnameValue(): string | null {
+    return this.fullname$.getValue();
+  }
+
+  get isAdminValue(): boolean {
+    return this.isAdmin$.getValue();
+  }
+
   register(registerForm: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/signup`, registerForm);
   }
@@ -33,44 +51,66 @@ export class AuthService {
         const token = response.token;
 
         if (token) {
-          this.loggedIn$.next(true);
-          this.fullname$.next(response.user.fullname);
 
-          // Save the token to localStorage or Cookie
-          localStorage.setItem('token', token);
+          if (response.user.role === 'admin') {
+            this.setAuthState(true, response.user.fullname, true);
+          } else {
+            this.setAuthState(true, response.user.fullname, false);
+          }
+          this.saveTokenToStorage(token);
         }
       })
     );
   }
 
-  private checkLocalStorage() {
-    const token = localStorage.getItem('token');
+  private setAuthState(
+    loggedIn: boolean,
+    fullname: string | null,
+    isAdmin: boolean
+  ): void {
+    this.loggedIn$.next(loggedIn);
+    this.fullname$.next(fullname);
+    this.isAdmin$.next(isAdmin);
+  }
 
-    if (token) {
-      this.loggedIn$.next(true);
+  private saveTokenToStorage(token: string): void {
+    localStorage.setItem('token', token);
+  }
 
-      this.http
-        .get(`${this.baseUrl}/user`, {
-          headers: {
-            Authorization: `${token}`,
-          },
-        })
-        .subscribe(
-          (response: any) => {
-            this.fullname$.next(response.user.fullname);
-          },
-          (error) => {
-            console.log(error);
-            this.logout();
-          }
-        );
+  async checkLocalStorage(): Promise<void> {
+    try {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        return Promise.resolve(); // Khi không có token, resolve promise ngay từ đầu
+      }
+
+      const headers = new HttpHeaders({ Authorization: token });
+
+      const response: any = await this.http
+        .get(`${this.baseUrl}/user`, { headers })
+        .toPromise();
+
+      if (response.user.role === 'admin') {
+        this.setAuthState(true, response.user.fullname, true);
+      } else {
+        this.setAuthState(true, response.user.fullname, false);
+      }
+    } catch (error) {
+      console.error(error);
+      this.logout();
     }
+
+    // Khi đã xử lý xong mọi thứ
+    return Promise.resolve();
   }
 
   logout(): void {
-    // Clear the authentication state and remove the token from localStorage or Cookie
-    this.loggedIn$.next(false);
-    this.fullname$.next(null);
+    this.setAuthState(false, null, false);
+    this.removeTokenFromStorage();
+  }
+
+  private removeTokenFromStorage(): void {
     localStorage.removeItem('token');
   }
 }

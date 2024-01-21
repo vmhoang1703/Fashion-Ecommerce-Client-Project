@@ -18,7 +18,6 @@ export class HomeComponent {
   getBestSellerProducts(): void {
     this.productService.getBestSellerProducts().subscribe(
       (response: any) => {
-        console.log(response.products);
         this.bestSellerProducts = response.products;
       },
       (error: any) => {

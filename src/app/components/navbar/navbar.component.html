@@ -143,6 +143,25 @@
             <span class="text-item">Yêu thích</span>
           </button>
 
+          <!-- Nút dẫn đến trang admin -->
+          <button
+            type="button"
+            class="btn btn-link text-decoration-none"
+            style="color: black; margin-top: 10px; margin-bottom: -10px"
+            *ngIf="isAdmin"
+            routerLink="/admin"
+          >
+            <img
+              src="assets/admin.png"
+              class="me-1"
+              alt="admin icon"
+              width="17px"
+              height="17px"
+              style="margin-left: -7px; margin-top: -3px"
+            />
+            <span class="text-item">Quản lý</span>
+          </button>
+
           <hr />
 
           <button

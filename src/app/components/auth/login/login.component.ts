@@ -44,13 +44,11 @@ export class LoginComponent implements OnInit {
           const token = response.token;
 
           if (token) {
-            // Lưu token vào localStorage hoặc Cookie để sử dụng ở các trang khác
+            // Lưu token vào localStorage để sử dụng ở các trang khác
             localStorage.setItem('token', token);
 
             alert('Đăng nhập thành công!');
             this.closeLoginModal();
-
-            console.log("Đây là token: " + token);
           } else {
             alert('Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.');
           }

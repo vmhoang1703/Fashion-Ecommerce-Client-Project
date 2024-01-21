@@ -23,6 +23,7 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
 import { AdminCreateCollectionComponent } from './components/admin/admin-collection/admin-create-collection/admin-create-collection.component';
+import { LoginGuard } from './guards/login.guard';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { AdminCreateCollectionComponent } from './components/admin/admin-collect
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [AuthService, RegisterModalService, LoginModalService, ProductService],
+  providers: [AuthService, RegisterModalService, LoginModalService, ProductService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

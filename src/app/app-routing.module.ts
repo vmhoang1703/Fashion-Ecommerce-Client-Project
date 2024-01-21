@@ -7,6 +7,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
 import { AdminCreateCollectionComponent } from './components/admin/admin-collection/admin-create-collection/admin-create-collection.component';
 
+// Import LoginGuard
+import { LoginGuard } from './guards/login.guard';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -14,6 +17,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [LoginGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: AdminDashboardComponent },
