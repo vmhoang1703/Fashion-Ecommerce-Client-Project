@@ -5,7 +5,7 @@ import { CollectionComponent } from './components/collection/collection.componen
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
-import { AdminCreateCollectionComponent } from './components/admin/admin-collection/admin-create-collection/admin-create-collection.component';
+import { AdminCreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
 
 // Import LoginGuard
 import { LoginGuard } from './guards/login.guard';

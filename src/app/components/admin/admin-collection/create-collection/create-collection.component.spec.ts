@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminCreateCollectionComponent } from './admin-create-collection.component';
+import { AdminCreateCollectionComponent } from './create-collection.component';
 
 describe('AdminCreateCollectionComponent', () => {
   let component: AdminCreateCollectionComponent;

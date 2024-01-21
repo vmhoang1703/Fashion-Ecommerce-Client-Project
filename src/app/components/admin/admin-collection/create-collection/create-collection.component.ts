@@ -9,9 +9,9 @@ import { CollectionService } from 'src/app/services/collection.service';
 import { Collection } from '../../../../models/collection';
 
 @Component({
-  selector: 'app-admin-create-collection',
-  templateUrl: './admin-create-collection.component.html',
-  styleUrls: ['./admin-create-collection.component.css'],
+  selector: 'app-create-collection',
+  templateUrl: './create-collection.component.html',
+  styleUrls: ['./create-collection.component.css'],
 })
 export class AdminCreateCollectionComponent implements OnInit {
   createCollectionForm!: FormGroup;
