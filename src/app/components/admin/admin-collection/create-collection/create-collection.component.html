@@ -1,6 +1,6 @@
 <div class="container">
-  <h2 class="mb-3">Trang thêm bộ sưu tập</h2>
-  <form (ngSubmit)="onSubmit()" [formGroup]="createCollectionForm">
+  <h3 class="mb-3">Trang thêm bộ sưu tập</h3>
+  <form (ngSubmit)="createCollection()" [formGroup]="createCollectionForm">
     <div class="form-group mb-4">
       <label for="title">Tên:</label>
       <input

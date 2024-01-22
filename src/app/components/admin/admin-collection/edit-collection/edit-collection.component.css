@@ -1,0 +1,21 @@
+.btn-custom {
+  background-color: #46362e;
+  border-color: #46362e;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.btn-custom:active {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.title {
+  color: #46362e;
+}

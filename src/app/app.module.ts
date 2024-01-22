@@ -22,8 +22,9 @@ import { CollectionCardComponent } from './components/collection-card/collection
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
-import { AdminCreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
+import { CreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
 import { LoginGuard } from './guards/login.guard';
+import { EditCollectionComponent } from './components/admin/admin-collection/edit-collection/edit-collection.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LoginGuard } from './guards/login.guard';
     AdminDashboardComponent,
     AdminComponent,
     AdminCollectionComponent,
-    AdminCreateCollectionComponent,
+    CreateCollectionComponent,
+    EditCollectionComponent,
   ],
   imports: [
     BrowserModule,

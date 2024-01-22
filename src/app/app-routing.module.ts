@@ -5,10 +5,11 @@ import { CollectionComponent } from './components/collection/collection.componen
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
-import { AdminCreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
+import { CreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
 
 // Import LoginGuard
 import { LoginGuard } from './guards/login.guard';
+import { EditCollectionComponent } from './components/admin/admin-collection/edit-collection/edit-collection.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'collections', component: AdminCollectionComponent },
-      { path: 'collections/create', component: AdminCreateCollectionComponent },
+      { path: 'collections/create', component: CreateCollectionComponent },
+      { path: 'collections/edit/:id', component: EditCollectionComponent }
     ],
   },
 ];

@@ -13,7 +13,7 @@ import { Collection } from '../../../../models/collection';
   templateUrl: './create-collection.component.html',
   styleUrls: ['./create-collection.component.css'],
 })
-export class AdminCreateCollectionComponent implements OnInit {
+export class CreateCollectionComponent implements OnInit {
   createCollectionForm!: FormGroup;
   selectedImage!: File;
 
@@ -27,6 +27,7 @@ export class AdminCreateCollectionComponent implements OnInit {
     this.createCollectionForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
+      imageUrl: ['', Validators.required],
     });
   }
 
@@ -34,7 +35,7 @@ export class AdminCreateCollectionComponent implements OnInit {
     this.selectedImage = event.target.files[0] as File;
   }
 
-  onSubmit() {
+  createCollection() {
     if (this.createCollectionForm.valid && this.selectedImage) {
       const formData = this.createCollectionForm.value;
 

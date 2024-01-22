@@ -10,14 +10,18 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered row-border hover" width="100%" cellspacing="0">
+      <table
+        class="table table-bordered row-border hover"
+        width="100%"
+        cellspacing="0"
+      >
         <thead>
           <tr>
             <th>STT</th>
             <th>Ảnh</th>
             <th>Tên</th>
             <th>Mô tả</th>
-            <th style="width: 17%;">Tổng sản phẩm</th>
+            <th>Tổng SP</th>
             <th></th>
           </tr>
         </thead>
@@ -27,30 +31,34 @@
             <th>Ảnh</th>
             <th>Tên</th>
             <th>Mô tả</th>
-            <th>Tổng sản phẩm</th>
+            <th>Tổng SP</th>
             <th></th>
           </tr>
+        </tfoot>
         <tbody>
           <tr *ngFor="let collection of collections; let i = index">
             <td>{{ i + 1 }}</td>
-            <td>
+            <td class="align-middle">
               <img
                 *ngIf="collection.imageUrl"
                 [src]="collection.imageUrl"
                 alt="{{ collection.title }} image"
-                width="100"
+                width="95"
                 height="auto"
               />
             </td>
             <td>{{ collection.title }}</td>
             <td>{{ collection.description }}</td>
             <td>{{ collection.products.length }}</td>
-            <td>
+            <td class="d-flex flex-column align-items-center">
               <button
-                class="btn btn-danger"
-                (click)="deleteCollection(collection._id)"
+                class="btn my-2"
+                [routerLink]="['/admin/collections/edit', collection._id]"
               >
-                Xóa
+                <img src="assets/edit.png" alt="Edit icon" width="30" />
+              </button>
+              <button class="btn my-2" (click)="deleteCollection(collection._id)">
+                <img src="assets/delete.png" alt="Delete icon" width="30" />
               </button>
             </td>
           </tr>

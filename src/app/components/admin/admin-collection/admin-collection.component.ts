@@ -38,7 +38,7 @@ export class AdminCollectionComponent implements OnInit {
     });
   }
 
-  deleteCollection(id: number): void {
+  deleteCollection(id: string): void {
     if (confirm('Bạn có chắc chắn muốn xóa bộ sưu tập này?')) {
       this.collectionService.deleteCollection(id).subscribe(
         (response) => {

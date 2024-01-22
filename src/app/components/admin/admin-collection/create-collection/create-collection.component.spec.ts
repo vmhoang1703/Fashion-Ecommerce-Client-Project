@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminCreateCollectionComponent } from './create-collection.component';
+import { CreateCollectionComponent } from './create-collection.component';
 
-describe('AdminCreateCollectionComponent', () => {
-  let component: AdminCreateCollectionComponent;
-  let fixture: ComponentFixture<AdminCreateCollectionComponent>;
+describe('CreateCollectionComponent', () => {
+  let component: CreateCollectionComponent;
+  let fixture: ComponentFixture<CreateCollectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminCreateCollectionComponent ]
+      declarations: [ CreateCollectionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminCreateCollectionComponent);
+    fixture = TestBed.createComponent(CreateCollectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
