@@ -33,7 +33,6 @@
       <label for="imageUrl">Ảnh hiện tại: </label>
       <br />
       <img
-        *ngIf="editCollectionForm.get('imageUrl')?.value"
         [src]="editCollectionForm.get('imageUrl')?.value"
         alt="Ảnh hiện tại"
         class="mt-3"
@@ -51,7 +50,7 @@
         (change)="onFileSelected($event)"
         required
       />
-    </div>    
+    </div>
     <button type="submit" class="btn btn-custom">Cập nhật bộ sưu tập</button>
   </form>
 </div>

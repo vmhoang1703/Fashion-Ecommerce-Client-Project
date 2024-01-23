@@ -6,10 +6,10 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
 import { CreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
+import { EditCollectionComponent } from './components/admin/admin-collection/edit-collection/edit-collection.component';
 
 // Import LoginGuard
 import { LoginGuard } from './guards/login.guard';
-import { EditCollectionComponent } from './components/admin/admin-collection/edit-collection/edit-collection.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

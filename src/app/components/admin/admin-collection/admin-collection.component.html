@@ -18,7 +18,7 @@
         <thead>
           <tr>
             <th>STT</th>
-            <th>Ảnh</th>
+            <th style="width: 10%;">Ảnh</th>
             <th>Tên</th>
             <th>Mô tả</th>
             <th>Tổng SP</th>
@@ -40,10 +40,9 @@
             <td>{{ i + 1 }}</td>
             <td class="align-middle">
               <img
-                *ngIf="collection.imageUrl"
                 [src]="collection.imageUrl"
                 alt="{{ collection.title }} image"
-                width="95"
+                width="100"
                 height="auto"
               />
             </td>

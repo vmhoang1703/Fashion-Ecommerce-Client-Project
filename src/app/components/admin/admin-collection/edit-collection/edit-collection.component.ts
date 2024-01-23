@@ -41,10 +41,10 @@ export class EditCollectionComponent implements OnInit {
         (response: any) => {
           this.collection = response.collection;
           this.editCollectionForm.patchValue({
-            title: response.collection.title,
-            description: response.collection.description,
+            title: this.collection.title,
+            description: this.collection.description,
+            imageUrl: this.collection.imageUrl || '',
           });
-          this.fetchCollectionImage(id);
         },
         (error) => {
           console.log(error);
@@ -54,24 +54,24 @@ export class EditCollectionComponent implements OnInit {
     }
   }
 
-  fetchCollectionImage(id: string): void {
-    this.collectionService.getCollectionImage(id).subscribe(
-      (imageData: Blob) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(imageData);
-        reader.onloadend = () => {
-          this.collection.imageUrl = reader.result as string;
-          this.editCollectionForm.patchValue({
-            imageUrl: this.collection.imageUrl,
-          });
-        };
-      },
-      (error) => {
-        console.log(error);
-        alert('Lấy ảnh bộ sưu tập thất bại!');
-      }
-    );
-  }
+  // fetchCollectionImage(id: string): void {
+  //   this.collectionService.getCollectionImage(id).subscribe(
+  //     (imageData: Blob) => {
+  //       const reader = new FileReader();
+  //       reader.readAsDataURL(imageData);
+  //       reader.onloadend = () => {
+  //         this.collection.imageUrl = reader.result as string;
+  //         this.editCollectionForm.patchValue({
+  //           imageUrl: this.collection.imageUrl,
+  //         });
+  //       };
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //       alert('Lấy ảnh bộ sưu tập thất bại!');
+  //     }
+  //   );
+  // }
 
   onFileSelected(event: any): void {
     this.selectedImage = event.target.files[0] as File;
@@ -80,7 +80,8 @@ export class EditCollectionComponent implements OnInit {
   updateCollection(): void {
     if (this.editCollectionForm.valid && this.selectedImage) {
       const formData = this.editCollectionForm.value;
-      // Thêm logic xử lý cập nhật collection ở đây nếu cần
+      const file: File | null = this.selectedImage;
+      
     }
   }
 }

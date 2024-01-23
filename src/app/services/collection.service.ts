@@ -20,7 +20,7 @@ export class CollectionService {
     return this.http.get(url, { responseType: 'blob' });
   }
 
-  createCollection(collection: FormData): Observable<any> {
+  createCollection(collection: Collection): Observable<any> {
     return this.http.post(`${this.baseUrl}/create`, collection);
   }
 

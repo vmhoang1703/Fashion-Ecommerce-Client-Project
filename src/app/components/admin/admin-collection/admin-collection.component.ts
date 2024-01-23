@@ -23,18 +23,6 @@ export class AdminCollectionComponent implements OnInit {
   getCollections(): void {
     this.collectionService.getCollections().subscribe((response: any) => {
       this.collections = response.collections;
-
-      this.collections.forEach((collection) => {
-        this.collectionService
-          .getCollectionImage(collection._id)
-          .subscribe((imageData: Blob) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(imageData);
-            reader.onloadend = () => {
-              collection.imageUrl = reader.result as string;
-            };
-          });
-      });
     });
   }
 
