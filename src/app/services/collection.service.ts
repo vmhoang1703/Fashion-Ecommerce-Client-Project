@@ -32,7 +32,7 @@ export class CollectionService {
     return this.http.get<Collection>(`${this.baseUrl}/${id}`);
   }
 
-  updateCollection(id: string, collection: FormData): Observable<any> {
+  updateCollection(id: string, collection: Collection): Observable<any> {
     return this.http.put(`${this.baseUrl}/update/${id}`, collection);
   }
 }

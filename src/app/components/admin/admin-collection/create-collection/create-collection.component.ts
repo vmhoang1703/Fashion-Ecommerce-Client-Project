@@ -33,6 +33,7 @@ export class CreateCollectionComponent implements OnInit {
     this.createCollectionForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
+      imageUrl: ['', Validators.required],
     });
   }
 

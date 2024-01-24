@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Collection } from 'src/app/models/collection';
 
 @Component({
   selector: 'app-collection-card',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./collection-card.component.css'],
 })
 export class CollectionCardComponent{
-  @Input() collection: any;
+  @Input() collection!: Collection;
 
   constructor() {}
 

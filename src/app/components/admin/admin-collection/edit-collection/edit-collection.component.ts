@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CollectionService } from 'src/app/services/collection.service';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 import { Collection } from '../../../../models/collection';
+import { FileUpload } from '../../../../models/file-upload';
 
 @Component({
   selector: 'app-edit-collection',
@@ -11,14 +13,17 @@ import { Collection } from '../../../../models/collection';
 })
 export class EditCollectionComponent implements OnInit {
   editCollectionForm!: FormGroup;
-  selectedImage!: File;
   collection!: Collection;
+  selectedImage!: File;
+  currentFileUpload!: FileUpload;
+  percentage = 0;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private uploadService: FileUploadService
   ) {}
 
   ngOnInit(): void {
@@ -28,9 +33,9 @@ export class EditCollectionComponent implements OnInit {
 
   initializeForm(): void {
     this.editCollectionForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      imageUrl: ['', Validators.required],
+      title: [''],
+      description: [''],
+      imageUrl: [''],
     });
   }
 
@@ -43,7 +48,7 @@ export class EditCollectionComponent implements OnInit {
           this.editCollectionForm.patchValue({
             title: this.collection.title,
             description: this.collection.description,
-            imageUrl: this.collection.imageUrl || '',
+            imageUrl: this.collection.imageUrl,
           });
         },
         (error) => {
@@ -78,10 +83,68 @@ export class EditCollectionComponent implements OnInit {
   }
 
   updateCollection(): void {
-    if (this.editCollectionForm.valid && this.selectedImage) {
-      const formData = this.editCollectionForm.value;
+    const id = this.route.snapshot.paramMap.get('id');
+
+    const formData = this.editCollectionForm.value;
+
+    if (this.selectedImage) {
       const file: File | null = this.selectedImage;
-      
-    }
+
+      this.currentFileUpload = new FileUpload(file);
+
+      this.uploadService
+        .pushFileToStorage(this.currentFileUpload)
+        .subscribe((downloadURL) => {
+          if (downloadURL) {
+            if (id === null) {
+              alert('Cập nhật bộ sưu tập thất bại');
+              return;
+            }
+            const collectionData: Collection = {
+              _id: id || '',
+              title: formData.title || '',
+              description: formData.description || '',
+              imageUrl: downloadURL,
+              products: [],
+            };
+
+            this.collectionService
+              .updateCollection(id, collectionData)
+              .subscribe((response) => {
+                if (response.message === 'success') {
+                  alert('Cập nhật bộ sưu tập thành công');
+                  this.router.navigate(['/admin/collections']);
+                } else {
+                  alert('Cập nhật bộ sưu tập thất bại');
+                  this.editCollectionForm.reset();
+                }
+              });
+          }
+        });
+    } else {
+      if (id === null) {
+        alert('Cập nhật bộ sưu tập thất bại');
+        return;
+      }
+      const collectionData: Collection = {
+        _id: id,
+        title: formData.title || '',
+        description: formData.description || '',
+        imageUrl: this.collection.imageUrl,
+        products: [],
+      };
+
+      this.collectionService
+        .updateCollection(id, collectionData)
+        .subscribe((response) => {
+          if (response.message === 'success') {
+            alert('Cập nhật bộ sưu tập thành công');
+            this.router.navigate(['/admin/collections']);
+          } else {
+            alert('Cập nhật bộ sưu tập thất bại');
+            this.editCollectionForm.reset();
+          }
+        });
+    } 
   }
 }
