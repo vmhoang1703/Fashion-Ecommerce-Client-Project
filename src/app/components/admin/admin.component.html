@@ -1,15 +1,88 @@
-<div class="container-fluid pt-4 admin-body" >
-    <div class="row">
-        <div class="col-md-3 col-12 mb-3">
-            <div class="list-group">
-                <a routerLink="/admin" class="list-group-item list-group-item-action ">Dashboard</a>
-                <a routerLink="/admin/collections" class="list-group-item list-group-item-action">Bộ sưu tập</a>
-                <a routerLink="" class="list-group-item list-group-item-action">Blog</a>
-                <a routerLink="" class="list-group-item list-group-item-action"> Đơn hàng</a>
-            </div>
-        </div>
-       <div class="col-md-9">
-           <router-outlet></router-outlet>
-       </div>
-      </div>
+<div class="container-fluid pt-4 admin-body">
+  <div class="row justify-content-between mx-4">
+    <div
+      class="col-md-2 col-12 d-flex flex-column flex-shrink-0 pt-3 pb-3 px-4 mb-3 admin-sidebar"
+    >
+      <a
+        href="/admin"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+      >
+        <!-- <img src="assets/logo.jpg" class="bi pe-none me-2 rounded-circle" width="40" height="40"/> -->
+        <span class="fs-4">Trang quản lý</span>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/admin/dashboard" class="nav-link">
+            <!-- <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg> -->
+            Dashboard
+          </a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/admin/collections" class="nav-link">
+            <!-- <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#speedometer2"></use>
+            </svg> -->
+            Bộ sưu tập
+          </a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/admin/products" class="nav-link">
+            <!-- <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg> -->
+            Sản phẩm
+          </a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/admin/blogs" class="nav-link">
+            <!-- <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#grid"></use>
+            </svg> -->
+            Blog
+          </a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/admin/orders" class="nav-link">
+            <!-- <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#people-circle"></use>
+            </svg> -->
+            Đơn hàng
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <!-- <div class="dropdown">
+        <a
+          routerLink="/admin"
+          class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://github.com/mdo.png"
+            alt=""
+            width="32"
+            height="32"
+            class="rounded-circle me-2"
+          />
+          <strong>mdo</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li>
+            <a class="dropdown-item" routerLink="/admin">New project...</a>
+          </li>
+          <li><a class="dropdown-item" routerLink="/admin">Settings</a></li>
+          <li><a class="dropdown-item" routerLink="/admin">Profile</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" routerLink="/admin">Sign out</a></li>
+        </ul>
+      </div> -->
+    </div>
+    <div class="col-md-9 admin-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

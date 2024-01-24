@@ -1,3 +1,47 @@
 .admin-body {
-    min-height: 100vh;
+  min-height: 100vh;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.admin-sidebar {
+  background-color: #dfdede;
+  color: white;
+  height:fit-content;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-sidebar a {
+  text-decoration: none;
+}
+
+.nav-pills .nav-link {
+  color: #46362e;
+}
+
+.nav-pills .active .nav-link {
+  color: white;
+}
+
+.nav-pills .active .nav-link:hover {
+  color: #46362e;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: white;
+  color: #46362e;
+  border-radius: 10px;
+}
+
+.nav-pills .active {
+  background-color: #46362e;
+  border-radius: 10px;
+}
+
+.admin-content {
+  padding: 0;
 }
