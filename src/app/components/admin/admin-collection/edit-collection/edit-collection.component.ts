@@ -105,7 +105,6 @@ export class EditCollectionComponent implements OnInit {
               title: formData.title || '',
               description: formData.description || '',
               imageUrl: downloadURL,
-              products: [],
             };
 
             this.collectionService
@@ -131,7 +130,6 @@ export class EditCollectionComponent implements OnInit {
         title: formData.title || '',
         description: formData.description || '',
         imageUrl: this.collection.imageUrl,
-        products: [],
       };
 
       this.collectionService

@@ -59,7 +59,6 @@ export class CreateCollectionComponent implements OnInit {
                 title: formData.title,
                 description: formData.description,
                 imageUrl: downloadURL,
-                products: [],
               };
 
               this.collectionService
