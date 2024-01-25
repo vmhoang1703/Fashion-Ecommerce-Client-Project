@@ -21,7 +21,7 @@
             <th style="width: 10%;">Ảnh</th>
             <th>Tên</th>
             <th>Mô tả</th>
-            <th></th>
+            <th style="width: 10%;"></th>
           </tr>
         </thead>
         <tfoot>
@@ -46,16 +46,22 @@
             </td>
             <td>{{ collection.title }}</td>
             <td>{{ collection.description }}</td>
-            <td class="d-flex flex-column align-items-center">
+            <td class="d-flex flex-column">
+              <!-- <button
+                class="btn btn-primary my-1"
+                [routerLink]="['/admin/products', product._id]"
+              >
+                Xem
+              </button> -->
               <button
-                class="btn my-2"
+                class="btn btn-secondary my-1"
                 [routerLink]="['/admin/collections/edit', collection._id]"
               >
-                <img src="assets/edit.png" alt="Edit icon" width="30" />
+                Sửa
               </button>
-              <button class="btn my-2" (click)="deleteCollection(collection._id)">
-                <img src="assets/delete.png" alt="Delete icon" width="30" />
-              </button>
+              <button class="btn btn-danger my-1">
+                  Xóa
+                </button>
             </td>
           </tr>
         </tbody>

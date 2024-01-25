@@ -37,6 +37,8 @@ import { LoginGuard } from './guards/login.guard';
 // Import Environment
 import { environment } from './environments/environment';
 import { CollectionService } from './services/collection.service';
+import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
+import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { CollectionService } from './services/collection.service';
     AdminCollectionComponent,
     CreateCollectionComponent,
     EditCollectionComponent,
+    AdminProductComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,

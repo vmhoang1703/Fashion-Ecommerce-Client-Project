@@ -1,0 +1,119 @@
+<div class="container card shadow mb-4">
+  <div class="card-header py-3 row">
+    <h2 class="h3 col-md-9 mb-2 text-gray-800">Quản lý Sản phẩm</h2>
+    <button
+      class="btn col-md-3 btn-custom"
+      [routerLink]="['/admin/products/create']"
+    >
+      Thêm sản phẩm
+    </button>
+
+    <div class="form-group row mt-4 justify-content-between">
+      <!-- Chọn bộ sưu tập để xem danh sách sản phẩm -->
+      <div class="col-md-5">
+        <div class="row">
+          <label for="collection" class="col-sm-4 col-form-label"
+            >Bộ sưu tập</label
+          >
+          <div class="col-sm-8">
+            <select
+              class="form-control"
+              id="collection"
+              [(ngModel)]="selectedCollection"
+              (change)="getProducts()"
+            >
+              <option value="all" selected>Tất cả</option>
+              <option
+                *ngFor="let collection of collections"
+                [value]="collection._id"
+              >
+                {{ collection.title }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tìm kiếm sản phẩm -->
+      <div class="col-md-6">
+        <div class="row">
+          <label for="search" class="col-sm-5 col-form-label"
+            >Tìm kiếm sản phẩm</label
+          >
+          <div class="col-sm-7">
+            <input
+              type="text"
+              class="form-control"
+              id="search"
+              (keyup)="getProducts()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered row-border hover"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th style="width: 10%">Ảnh</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th style="width: 10%"></th>
+          </tr>
+        </thead> 
+        <tfoot>
+          <tr>
+            <th>STT</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th></th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="align-middle">
+              <img
+                [src]="product.mainImageUrl"
+                alt="{{ product.name }} image"
+                width="100"
+                height="auto"
+              />
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price | currency:'VND':'symbol':'1.0-0' }}</td>
+            <td>{{ product.quantity }}</td>
+            <td class="d-flex flex-column">
+              <button
+                class="btn btn-primary my-1"
+                [routerLink]="['/admin/products', product._id]"
+              >
+                Xem
+              </button>
+              <button
+                class="btn btn-secondary my-1"
+                [routerLink]="['/admin/collections/edit', product._id]"
+              >
+                Sửa
+              </button>
+              <button class="btn btn-danger my-1">
+                  Xóa
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

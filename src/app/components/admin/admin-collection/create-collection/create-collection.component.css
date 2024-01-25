@@ -15,3 +15,7 @@
     color: #46362e;
     border-color: #46362e;
   }
+
+  .required {
+    color: red;
+  }

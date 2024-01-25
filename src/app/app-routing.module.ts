@@ -10,6 +10,8 @@ import { EditCollectionComponent } from './components/admin/admin-collection/edi
 
 // Import LoginGuard
 import { LoginGuard } from './guards/login.guard';
+import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
+import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,7 +26,9 @@ const routes: Routes = [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'collections', component: AdminCollectionComponent },
       { path: 'collections/create', component: CreateCollectionComponent },
-      { path: 'collections/edit/:id', component: EditCollectionComponent }
+      { path: 'collections/edit/:id', component: EditCollectionComponent },
+      { path: 'products', component: AdminProductComponent},
+      { path: 'products/create', component: CreateProductComponent},
     ],
   },
 ];

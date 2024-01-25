@@ -110,7 +110,7 @@ export class EditCollectionComponent implements OnInit {
             this.collectionService
               .updateCollection(id, collectionData)
               .subscribe((response) => {
-                if (response.message === 'success') {
+                if (response.message === 'Cập nhật bộ sưu tập thành công') {
                   alert('Cập nhật bộ sưu tập thành công');
                   this.router.navigate(['/admin/collections']);
                 } else {
@@ -135,7 +135,7 @@ export class EditCollectionComponent implements OnInit {
       this.collectionService
         .updateCollection(id, collectionData)
         .subscribe((response) => {
-          if (response.message === 'success') {
+          if (response.message === 'Cập nhật bộ sưu tập thành công') {
             alert('Cập nhật bộ sưu tập thành công');
             this.router.navigate(['/admin/collections']);
           } else {

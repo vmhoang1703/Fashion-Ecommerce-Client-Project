@@ -3,5 +3,8 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  imageUrl: string;
+  quantity: number;
+  collectionId: string;
+  mainImageUrl: string;
+  otherImageUrls: string[];
 }

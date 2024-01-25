@@ -31,9 +31,9 @@ export class CreateCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.createCollectionForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      imageUrl: ['', Validators.required],
+      title: [''],
+      description: [''],
+      imageUrl: [''],
     });
   }
 
