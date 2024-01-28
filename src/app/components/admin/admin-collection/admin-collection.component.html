@@ -4,6 +4,7 @@
     <button
       class="btn col-md-3 btn-custom"
       [routerLink]="['/admin/collections/create']"
+      routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" 
     >
       Thêm bộ sưu tập
     </button>
@@ -59,7 +60,7 @@
               >
                 Sửa
               </button>
-              <button class="btn btn-danger my-1">
+              <button class="btn btn-danger my-1" (click)="deleteCollection(collection._id)">
                   Xóa
                 </button>
             </td>

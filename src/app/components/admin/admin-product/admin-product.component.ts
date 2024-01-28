@@ -43,4 +43,24 @@ export class AdminProductComponent implements OnInit {
         });
     }
   }
+
+  deleteProduct(id: string): void {
+    if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+      this.productsService.deleteProduct(id).subscribe(
+        (response) => {
+          if (response.message === 'Xóa sản phẩm thành công') {
+            alert('Xóa sản phẩm thành công!');
+            this.getProducts();
+          } else {
+            console.log(response);
+            alert('Xóa sản phẩm thất bại!');
+          }
+        },
+        (error) => {
+          console.log(error);
+          alert('Xóa sản phẩm thất bại!');
+        }
+      );
+    }
+  }
 }

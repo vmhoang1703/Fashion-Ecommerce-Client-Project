@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 // Import Components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,6 +25,10 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
 import { CreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
 import { EditCollectionComponent } from './components/admin/admin-collection/edit-collection/edit-collection.component';
+import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
+import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
+import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
+import { ShowProductComponent } from './components/admin/admin-product/show-product/show-product.component';
 
 // Import Services
 import { AuthService } from './services/auth.service';
@@ -30,15 +36,13 @@ import { RegisterModalService } from './services/register-modal.service';
 import { LoginModalService } from './services/login-modal.service';
 import { ProductService } from './services/product.service';
 import { FileUploadService } from './services/file-upload.service';
+import { CollectionService } from './services/collection.service';
 
 // Import Guards
 import { LoginGuard } from './guards/login.guard';
 
 // Import Environment
 import { environment } from './environments/environment';
-import { CollectionService } from './services/collection.service';
-import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
-import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,8 @@ import { CreateProductComponent } from './components/admin/admin-product/create-
     EditCollectionComponent,
     AdminProductComponent,
     CreateProductComponent,
+    EditProductComponent,
+    ShowProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +75,16 @@ import { CreateProductComponent } from './components/admin/admin-product/create-
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.cubeGrid,
+      backdropBackgroundColour: "rgba(0,0,0,0.3)",
+      fullScreenBackdrop: true,
+      // backdropBorderRadius: "5px",
+      primaryColour: "#46362e",
+      secondaryColour: "#46362e",
+      tertiaryColour: "#46362e",
+    }),
+    NgImageSliderModule,
   ],
   providers: [
     AuthService,

@@ -45,8 +45,12 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/home']);
+    if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+      this.authService.logout();
+      this.router.navigate(['/home']);
+    } else {
+      return;
+    }
   }
 
   @HostListener('window:scroll', [])

@@ -63,53 +63,49 @@
         <thead>
           <tr>
             <th>STT</th>
-            <th style="width: 10%">Ảnh</th>
             <th>Tên</th>
             <th>Giá</th>
             <th>Số lượng</th>
-            <th style="width: 10%"></th>
+            <th>Đã bán</th>
+            <th></th>
           </tr>
-        </thead> 
+        </thead>
         <tfoot>
           <tr>
             <th>STT</th>
-            <th>Ảnh</th>
             <th>Tên</th>
             <th>Giá</th>
             <th>Số lượng</th>
+            <th>Đã bán</th>
             <th></th>
           </tr>
         </tfoot>
         <tbody>
           <tr *ngFor="let product of products; let i = index">
             <td>{{ i + 1 }}</td>
-            <td class="align-middle">
-              <img
-                [src]="product.mainImageUrl"
-                alt="{{ product.name }} image"
-                width="100"
-                height="auto"
-              />
-            </td>
             <td>{{ product.name }}</td>
-            <td>{{ product.price | currency:'VND':'symbol':'1.0-0' }}</td>
+            <td>{{ product.price | currency : "VND" : "symbol" : "1.0-0" }}</td>
             <td>{{ product.quantity }}</td>
-            <td class="d-flex flex-column">
+            <td>{{ product.sold }}</td>
+            <td class="d-flex flex-row">
               <button
-                class="btn btn-primary my-1"
+                class="btn btn-primary mx-1"
                 [routerLink]="['/admin/products', product._id]"
               >
                 Xem
               </button>
               <button
-                class="btn btn-secondary my-1"
-                [routerLink]="['/admin/collections/edit', product._id]"
+                class="btn btn-secondary mx-1"
+                [routerLink]="['/admin/products/edit', product._id]"
               >
                 Sửa
               </button>
-              <button class="btn btn-danger my-1">
-                  Xóa
-                </button>
+              <button
+                class="btn btn-danger mx-1"
+                (click)="deleteProduct(product._id)"
+              >
+                Xóa
+              </button>
             </td>
           </tr>
         </tbody>

@@ -8,7 +8,7 @@
 }
 
 .admin-sidebar {
-  background-color: #dfdede;
+  background-color: #e6e6e6;
   color: white;
   height:fit-content;
   border-radius: 20px;
@@ -27,15 +27,17 @@
   color: white;
 }
 
-.nav-pills .active .nav-link:hover {
-  color: #46362e;
-}
+/* .nav-pills .active .nav-link:hover {
+  color: white;
+} */
 
 .nav-pills .nav-link:hover {
-  background-color: white;
-  color: #46362e;
-  border-radius: 10px;
+  /* background-color: #46362e;
+  color: white;
+  border-radius: 10px; */
+  color: #f58539;
 }
+
 
 .nav-pills .active {
   background-color: #46362e;

@@ -17,5 +17,9 @@
 }
 
 .title {
-  color: #46362e;
+  color: #cd6f00;
+}
+
+label {
+  font-weight: 500;
 }

@@ -1,0 +1,27 @@
+<div class="container" *ngIf="product">
+  <h3 class="mb-3">
+    Chi tiết sản phẩm
+    <span
+      ><i class="title">{{ product.name }}</i></span
+    >
+  </h3>
+  <div class="row">
+    <div class="col-md-6">
+      <ng-image-slider [images]="imageObject" #nav> </ng-image-slider>
+      <!-- <button (click)="prevImageClick()">Prev</button> -->
+      <!-- <button (click)="nextImageClick()">Next</button> -->
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-3"><strong>Tên:</strong> {{ product.name }}</div>
+      <div class="mb-3"><strong>Bộ sưu tập:</strong> {{ collectionTitle }}</div>
+      <div class="mb-3"><strong>Mô tả:</strong> {{ product.description }}</div>
+      <div class="mb-3">
+        <strong>Giá:</strong>
+        {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+      </div>
+      <div class="mb-3"><strong>Số lượng:</strong> {{ product.quantity }}</div>
+      <div class="mb-3"><strong>Đã bán:</strong> {{ product.sold }}</div>
+    </div>
+  </div>
+</div>

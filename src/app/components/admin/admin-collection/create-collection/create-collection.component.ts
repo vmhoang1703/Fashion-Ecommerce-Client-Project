@@ -21,6 +21,7 @@ export class CreateCollectionComponent implements OnInit {
   selectedImage!: File;
   currentFileUpload!: FileUpload;
   percentage = 0;
+  public loading = false;
 
   constructor(
     private collectionService: CollectionService,
@@ -43,6 +44,7 @@ export class CreateCollectionComponent implements OnInit {
 
   createCollection() {
     if (this.createCollectionForm.valid && this.selectedImage) {
+      this.loading = true;
       const formData = this.createCollectionForm.value;
 
       const file: File | null = this.selectedImage;
@@ -61,9 +63,9 @@ export class CreateCollectionComponent implements OnInit {
                 imageUrl: downloadURL,
               };
 
-              this.collectionService
-                .createCollection(collectionData)
-                .subscribe((response) => {
+              this.collectionService.createCollection(collectionData).subscribe(
+                (response) => {
+                  this.loading = false;
                   if (response.message === 'Tạo bộ sưu tập thành công') {
                     alert('Tạo bộ sưu tập thành công');
                     this.router.navigate(['/admin/collections']);
@@ -71,7 +73,13 @@ export class CreateCollectionComponent implements OnInit {
                     alert('Tạo bộ sưu tập thất bại');
                     this.createCollectionForm.reset();
                   }
-                });
+                },
+                (error) => {
+                  this.loading = false;
+                  alert('Tạo bộ sưu tập thất bại');
+                  this.createCollectionForm.reset();
+                }
+              );
             }
           });
       }

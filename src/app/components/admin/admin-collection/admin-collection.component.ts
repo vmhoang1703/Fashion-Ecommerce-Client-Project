@@ -30,8 +30,12 @@ export class AdminCollectionComponent implements OnInit {
     if (confirm('Bạn có chắc chắn muốn xóa bộ sưu tập này?')) {
       this.collectionService.deleteCollection(id).subscribe(
         (response) => {
-          alert('Xóa bộ sưu tập thành công!');
-          this.getCollections();
+          if (response.message === 'Xóa bộ sưu tập thành công') {
+            alert('Xóa bộ sưu tập thành công!');
+            this.getCollections();
+          } else {
+            alert('Xóa bộ sưu tập thất bại!');
+          }
         },
         (error) => {
           console.log(error);

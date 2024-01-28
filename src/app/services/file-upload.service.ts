@@ -103,21 +103,10 @@ export class FileUploadService {
     this.setDownloadURL(fileUpload.url);
   }
 
-  deleteFileUpload(fileUpload: FileUpload): void {
-    this.deleteFileData(fileUpload.key)
-      .then(() => {
-        this.deleteFileStorage(fileUpload.name);
-      })
-      .catch((error) => console.log(error));
+  deleteFile(fileUpload: FileUpload): void {
+    this.deleteFileStorage(fileUpload.name);
   }
-
-  private deleteFileData(key: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-      this.setDownloadURL(null);
-      resolve();
-    });
-  }
-
+  
   private deleteFileStorage(name: string): void {
     const storageRef = this.storage.ref(this.basePath);
     storageRef.child(name).delete();

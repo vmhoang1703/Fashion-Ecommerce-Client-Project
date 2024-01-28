@@ -1,4 +1,4 @@
-<nav>
+<nav class="container-fluid">
   <header
     [ngClass]="{ 'fixed-nav': isFixedHeader }"
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3"
@@ -8,7 +8,7 @@
         <div class="col-md-3">
           <a
             routerLink="/"
-            class="d-inline-flex link-body-emphasis text-decoration-none ms-4"
+            class="d-inline-flex link-body-emphasis text-decoration-none"
           >
             <img
               src="assets/logo.jpg"
@@ -59,7 +59,7 @@
 
     <!-- Login and register buttons -->
     <div
-      class="col-md-auto text-end me-3"
+      class="col-md-auto text-end"
       *ngIf="!isLoggedIn; else userSection"
     >
       <button
@@ -84,7 +84,7 @@
 
     <!-- User section -->
     <ng-template #userSection>
-      <div class="col-md-auto col-12 text-center user-section me-4">
+      <div class="col-md-auto col-12 text-center user-section">
         <span
           ><span class="dancing-font welcome-text">Xin chào,</span>
           {{ fullname }}

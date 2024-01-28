@@ -1,6 +1,20 @@
 <div class="container">
-  <h3 class="mb-3">Trang thêm bộ sưu tập</h3>
+  <h3 class="mb-3">Trang thêm sản phẩm</h3>
   <form (ngSubmit)="createProduct()" [formGroup]="createProductForm">
+    <div class="form-group mb-4">
+      <label for="imageUrls"
+        >Tải ảnh sản phẩm lên <span class="required">*</span></label
+      >
+      <input
+        type="file"
+        class="form-control mt-2"
+        id="imageUrls"
+        name="imageUrls"
+        formControlName="imageUrls"
+        (change)="onImagesSelected($event)"
+        multiple
+      />
+    </div>
     <div class="form-group mb-4">
       <label for="name">Tên <span class="required">*</span></label>
       <input
@@ -59,7 +73,8 @@
         </option>
       </select>
     </div>
-    <div class="form-group mb-4">
+
+    <!-- <div class="form-group mb-4">
       <label for="mainImageUrl">Tải ảnh chính lên <span class="required">*</span></label>
       <input
         type="file"
@@ -83,7 +98,9 @@
         multiple
         required
       />
-    </div>
+    </div> -->
     <button type="submit" class="btn btn-custom">Tạo sản phẩm</button>
   </form>
+
+  <ngx-loading [show]="loading"></ngx-loading>
 </div>

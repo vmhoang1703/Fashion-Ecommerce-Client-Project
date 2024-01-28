@@ -18,6 +18,8 @@
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   animation: fadeInDown 0.7s ease-in-out;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 #brand {

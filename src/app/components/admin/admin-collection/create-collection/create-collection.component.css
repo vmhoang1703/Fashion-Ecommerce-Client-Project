@@ -19,3 +19,7 @@
   .required {
     color: red;
   }
+
+  label {
+    font-weight: 500;
+  }

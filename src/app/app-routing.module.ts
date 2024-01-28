@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+// Import LoginGuard
+import { LoginGuard } from './guards/login.guard';
+
+// Import components
 import { HomeComponent } from './components/home/home.component';
 import { CollectionComponent } from './components/collection/collection.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
@@ -7,11 +12,10 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminCollectionComponent } from './components/admin/admin-collection/admin-collection.component';
 import { CreateCollectionComponent } from './components/admin/admin-collection/create-collection/create-collection.component';
 import { EditCollectionComponent } from './components/admin/admin-collection/edit-collection/edit-collection.component';
-
-// Import LoginGuard
-import { LoginGuard } from './guards/login.guard';
 import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
 import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
+import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
+import { ShowProductComponent } from './components/admin/admin-product/show-product/show-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,8 +31,10 @@ const routes: Routes = [
       { path: 'collections', component: AdminCollectionComponent },
       { path: 'collections/create', component: CreateCollectionComponent },
       { path: 'collections/edit/:id', component: EditCollectionComponent },
-      { path: 'products', component: AdminProductComponent},
-      { path: 'products/create', component: CreateProductComponent},
+      { path: 'products', component: AdminProductComponent },
+      { path: 'products/create', component: CreateProductComponent },
+      { path: 'products/edit/:id', component: EditProductComponent },
+      { path: 'products/:id', component: ShowProductComponent },
     ],
   },
 ];

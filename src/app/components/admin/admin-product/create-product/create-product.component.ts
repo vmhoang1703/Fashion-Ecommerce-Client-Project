@@ -15,11 +15,14 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class CreateProductComponent {
   createProductForm!: FormGroup;
-  mainImage!: File;
-  otherImages!: File[];
   collections: Collection[] = [];
-  currentMainImageUpload!: FileUpload;
-  currentOtherImagesUpload!: FileUpload[];
+  // mainImage!: File;
+  // images!: File[];
+  // currentMainImageUpload!: FileUpload;
+  // currentimagesUpload!: FileUpload[];
+  images: File[] = [];
+  currentImagesUpload!: FileUpload[];
+  public loading = false;
 
   constructor(
     private collectionService: CollectionService,
@@ -36,18 +39,21 @@ export class CreateProductComponent {
       price: [''],
       quantity: [''],
       collectionId: [''],
-      mainImageUrl: [''],
-      otherImageUrls: [''],
+      imageUrls: [''],
     });
     this.getCollections();
   }
 
-  onMainImgSelected(event: any) {
-    this.mainImage = event.target.files[0] as File;
-  }
+  // onMainImgSelected(event: any) {
+  //   this.mainImage = event.target.files[0] as File;
+  // }
 
-  onOtherImgsSelected(event: any) {
-    this.otherImages = event.target.files ? Array.from(event.target.files) : [];
+  // onOtherImgsSelected(event: any) {
+  //   this.images = event.target.files ? Array.from(event.target.files) : [];
+  // }
+
+  onImagesSelected(event: any) {
+    this.images = event.target.files ? Array.from(event.target.files) : [];
   }
 
   getCollections(): void {
@@ -57,61 +63,59 @@ export class CreateProductComponent {
   }
 
   createProduct() {
-    if (
-      this.createProductForm.valid &&
-      this.mainImage &&
-      Array.isArray(this.otherImages)
-    ) {
+    if (this.createProductForm.valid && Array.isArray(this.images)) {
+      this.loading = true;
       const formData = this.createProductForm.value;
-      const mainImage: File | null = this.mainImage;
-      const otherImages: File[] | null = this.otherImages;
+      const images: File[] | null = this.images;
 
-      if (mainImage && otherImages) {
-        this.currentMainImageUpload = new FileUpload(mainImage);
-        this.currentOtherImagesUpload = otherImages.map(
-          (image) => new FileUpload(image)
-        );
+      if (images) {
+        this.currentImagesUpload = images.map((image) => new FileUpload(image));
 
+        this.uploadService;
         this.uploadService
-          .pushFileToStorage(this.currentMainImageUpload)
-          .subscribe((downloadMainImgURL) => {
-            if (downloadMainImgURL) {
-              this.uploadService
-                .pushFilesToStorage(this.currentOtherImagesUpload)
-                .subscribe((downloadOtherImgsURLs) => {
-                  if (
-                    downloadOtherImgsURLs &&
-                    downloadOtherImgsURLs.length > 0
-                  ) {
-                    const productData: Product = {
-                      _id: '',
-                      name: formData.name,
-                      description: formData.description,
-                      price: formData.price,
-                      quantity: formData.quantity,
-                      collectionId: formData.collectionId,
-                      mainImageUrl: downloadMainImgURL,
-                      otherImageUrls: downloadOtherImgsURLs,
-                    };
+          .pushFilesToStorage(this.currentImagesUpload)
+          .subscribe((downloadImagesUrl) => {
+            if (downloadImagesUrl && downloadImagesUrl.length > 0) {
+              const productData: Product = {
+                _id: '',
+                name: formData.name,
+                description: formData.description,
+                price: formData.price,
+                quantity: formData.quantity,
+                sold: 0,
+                collectionId: formData.collectionId,
+                imageUrls: downloadImagesUrl,
+                mainImageUrl: downloadImagesUrl[0],
+              };
 
-                    this.productService
-                      .createProduct(productData)
-                      .subscribe((response) => {
-                        if (response.message === 'Tạo sản phẩm thành công') {
-                          alert('Tạo sản phẩm thành công');
-                          this.router.navigate(['/admin/products']);
-                        } else {
-                          alert('Tạo sản phẩm thất bại');
-                          this.createProductForm.reset();
-                        }
-                      });
+              this.productService.createProduct(productData).subscribe(
+                (response) => {
+                  this.loading = false;
+                  if (response.message === 'Tạo sản phẩm thành công') {
+                    alert('Tạo sản phẩm thành công');
+                    this.router.navigate(['/admin/products']);
+                  } else {
+                    alert('Tạo sản phẩm thất bại');
+                    // this.createProductForm.reset();
                   }
-                });
+                },
+                (error) => {
+                  this.loading = false;
+                  alert('Tạo sản phẩm thất bại');
+                  // this.createProductForm.reset();
+                }
+              );
+            } else {
+              this.loading = false;
+              alert('Tạo sản phẩm thất bại');
+              // this.createProductForm.reset();
             }
           });
+      } else {
+        this.loading = false;
+        alert('Tạo sản phẩm thất bại');
+        // this.createProductForm.reset();
       }
-    } else {
-      console.error('Invalid form data or otherImages is not an array');
     }
   }
 }

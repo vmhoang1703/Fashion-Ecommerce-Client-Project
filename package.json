@@ -29,6 +29,8 @@
     "datatables.net-bs4": "^1.13.8",
     "datatables.net-dt": "^1.13.8",
     "jquery": "^3.7.1",
+    "ng-image-slider": "^7.0.1",
+    "ngx-loading": "^2.0.1",
     "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

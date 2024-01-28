@@ -1,0 +1,47 @@
+.btn-custom {
+  background-color: #46362e;
+  border-color: #46362e;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.btn-custom:active {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+label {
+  font-weight: 500;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  transition: filter 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.image-container:hover img {
+  filter: brightness(70%);
+  transform: scale(1.1);
+}
+
+.image-container button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.image-container:hover button {
+  display: block;
+}
