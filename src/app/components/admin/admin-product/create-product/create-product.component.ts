@@ -66,12 +66,11 @@ export class CreateProductComponent {
     if (this.createProductForm.valid && Array.isArray(this.images)) {
       this.loading = true;
       const formData = this.createProductForm.value;
-      const images: File[] | null = this.images;
 
-      if (images) {
-        this.currentImagesUpload = images.map((image) => new FileUpload(image));
-
-        this.uploadService;
+      if (this.images) {
+        this.currentImagesUpload = this.images.map(
+          (image) => new FileUpload(image)
+        );
         this.uploadService
           .pushFilesToStorage(this.currentImagesUpload)
           .subscribe((downloadImagesUrl) => {

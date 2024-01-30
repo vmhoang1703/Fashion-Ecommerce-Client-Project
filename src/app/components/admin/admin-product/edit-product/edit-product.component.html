@@ -5,7 +5,38 @@
       ><i>{{ product.name }}</i></span
     >
   </h3>
-  <form (ngSubmit)="updateProduct()" [formGroup]="editProductForm">
+  <form (ngSubmit)="updateProduct()" [formGroup]="editProductForm" class="my-4">
+    <div class="form-group mb-4">
+      <label for="image">Ảnh sản phẩm (Chọn ảnh để xóa)</label>
+      <div class="row mt-2">
+        <div
+          class="col-md-2 d-flex flex-column align-items-center"
+          *ngFor="let imageUrl of product.imageUrls; let i = index"
+        >
+          <img [src]="imageUrl" alt="Main Image" class="img-fluid" />
+          <!-- Sử dụng formArrayName để theo dõi trạng thái checkbox -->
+          <input
+            type="checkbox"
+            formArrayName="imagesToDelete"
+            [id]="'imageToDelete' + i"
+            (change)="onImagesDeleteSelected(i)"
+            class="mt-2"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-4">
+      <label for="imageUrls">Tải ảnh sản phẩm lên (có thể chọn nhiều ảnh)</label>
+      <input
+        type="file"
+        class="form-control mt-2"
+        id="imageUrls"
+        name="imageUrls"
+        formControlName="imageUrls"
+        (change)="onImagesSelected($event)"
+        multiple
+      />
+    </div>
     <div class="form-group mb-4">
       <label for="name">Tên </label>
       <input
@@ -63,92 +94,7 @@
         </option>
       </select>
     </div>
-    <!-- <div class="form-group mb-4">
-      <label for="mainImage">Ảnh chính hiện tại </label>
-      <div class="row mt-2">
-        <img
-          [src]="product.mainImageUrl"
-          alt="Main Image"
-          class="img-fluid col-md-3"
-        />
-      </div>
-    </div> -->
-    <!-- <div class="form-group mb-4">
-      <label for="mainImage">Ảnh chính hiện tại </label>
-      <div class="row mt-2">
-        <div class="col-md-3" *ngFor="let imageUrl of [product.mainImageUrl]">
-          <div
-            class="image-container"
-            (mouseenter)="showDeleteButton = true"
-            (mouseleave)="showDeleteButton = false"
-          >
-            <img [src]="imageUrl" alt="Main Image" class="img-fluid" />
-            <button
-              *ngIf="showDeleteButton"
-              class="btn btn-danger btn-sm"
-            >
-              Xóa
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="form-group mb-4">
-      <label for="mainImageUrl">Cập nhật ảnh chính </label>
-      <input
-        type="file"
-        class="form-control mt-2"
-        id="mainImageUrl"
-        name="mainImageUrl"
-        (change)="onMainImgSelected($event)"
-      />
-    </div>
-    <!-- <div class="form-group mb-4">
-      <label for="otherImageUrls">Các ảnh khác hiện tại </label>
-      <div class="row mt-2">
-        <img
-          *ngFor="let otherImageUrl of product.otherImageUrls"
-          [src]="otherImageUrl"
-          alt="Other Image"
-          class="img-fluid col-md-2"
-        />
-      </div>
-    </div> -->
-    <!-- <div class="form-group mb-4">
-      <label for="otherImageUrls">Các ảnh khác hiện tại </label>
-      <div class="row mt-2">
-        <div
-          class="col-md-2"
-          *ngFor="let imageUrl of product.otherImageUrls"
-        >
-          <div
-            class="image-container"
-            (mouseenter)="showDeleteButton = true"
-            (mouseleave)="showDeleteButton = false"
-          >
-            <img [src]="imageUrl" alt="Main Image" class="img-fluid" />
-            <button
-              *ngIf="showDeleteButton"
-              class="btn btn-danger btn-sm"
-            >
-              Xóa
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="form-group mb-4">
-      <label for="otherImageUrls">Cập nhật các ảnh khác </label>
-      <input
-        type="file"
-        class="form-control mt-2"
-        id="otherImageUrls"
-        name="otherImageUrls"
-        (change)="onOtherImgsSelected($event)"
-        multiple
-      />
-    </div>
-    <button type="submit" class="btn btn-custom">Cập nhật sản phẩm</button>
+    <button type="submit" class="btn btn-custom mt-3">Cập nhật sản phẩm</button>
   </form>
 
   <ngx-loading [show]="loading"></ngx-loading>

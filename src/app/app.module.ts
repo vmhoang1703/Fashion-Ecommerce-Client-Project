@@ -10,6 +10,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 // Import Components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -85,6 +86,7 @@ import { environment } from './environments/environment';
       tertiaryColour: "#46362e",
     }),
     NgImageSliderModule,
+    AngularEditorModule,
   ],
   providers: [
     AuthService,

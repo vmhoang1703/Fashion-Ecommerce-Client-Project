@@ -1,6 +1,6 @@
 <div class="container">
   <h3 class="mb-3">Trang thêm bộ sưu tập</h3>
-  <form (ngSubmit)="createCollection()" [formGroup]="createCollectionForm">
+  <form (ngSubmit)="createCollection()" [formGroup]="createCollectionForm" class="mt-4">
     <div class="form-group mb-4">
       <label for="title">Tên <span class="required">*</span></label>
       <input
@@ -23,7 +23,7 @@
       ></textarea>
     </div>
     <div class="form-group mb-4">
-      <label for="imageUrl">Tải ảnh lên <span class="required">*</span></label>
+      <label for="imageUrl">Tải ảnh lên (chỉ được chọn 1 ảnh) <span class="required">*</span></label>
       <input
         type="file"
         class="form-control mt-2"
@@ -34,7 +34,7 @@
         required
       />
     </div>
-    <button type="submit" class="btn btn-custom">Tạo bộ sưu tập</button>
+    <button type="submit" class="btn btn-custom mt-3">Tạo bộ sưu tập</button>
   </form>
 
   <ngx-loading

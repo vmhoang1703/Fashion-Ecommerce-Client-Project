@@ -1,9 +1,9 @@
 <div class="container">
   <h3 class="mb-3">Trang thêm sản phẩm</h3>
-  <form (ngSubmit)="createProduct()" [formGroup]="createProductForm">
+  <form (ngSubmit)="createProduct()" [formGroup]="createProductForm" class="my-4">
     <div class="form-group mb-4">
       <label for="imageUrls"
-        >Tải ảnh sản phẩm lên <span class="required">*</span></label
+        >Tải ảnh sản phẩm lên (có thể chọn nhiều ảnh) <span class="required">*</span></label
       >
       <input
         type="file"
@@ -99,7 +99,7 @@
         required
       />
     </div> -->
-    <button type="submit" class="btn btn-custom">Tạo sản phẩm</button>
+    <button type="submit" class="btn btn-custom mt-3">Tạo sản phẩm</button>
   </form>
 
   <ngx-loading [show]="loading"></ngx-loading>

@@ -19,7 +19,7 @@ export class ShowProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private collectionService: CollectionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {

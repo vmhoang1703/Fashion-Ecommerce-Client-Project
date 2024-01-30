@@ -45,3 +45,7 @@ label {
 .image-container:hover button {
   display: block;
 }
+
+.title {
+  color: #cd6f00;
+}

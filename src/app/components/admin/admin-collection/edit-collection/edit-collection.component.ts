@@ -28,7 +28,7 @@ export class EditCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.fetchCollectionData();
+    this.getCollection();
   }
 
   initializeForm(): void {
@@ -39,7 +39,7 @@ export class EditCollectionComponent implements OnInit {
     });
   }
 
-  fetchCollectionData(): void {
+  getCollection(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.collectionService.getCollectionById(id).subscribe(
@@ -85,6 +85,11 @@ export class EditCollectionComponent implements OnInit {
   updateCollection(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
+    if (id === null) {
+      alert('Cập nhật bộ sưu tập thất bại');
+      return;
+    }
+
     const formData = this.editCollectionForm.value;
 
     if (this.selectedImage) {
@@ -96,10 +101,6 @@ export class EditCollectionComponent implements OnInit {
         .pushFileToStorage(this.currentFileUpload)
         .subscribe((downloadURL) => {
           if (downloadURL) {
-            if (id === null) {
-              alert('Cập nhật bộ sưu tập thất bại');
-              return;
-            }
             const collectionData: Collection = {
               _id: id || '',
               title: formData.title || '',
@@ -118,13 +119,12 @@ export class EditCollectionComponent implements OnInit {
                   this.editCollectionForm.reset();
                 }
               });
+          } else {
+            alert('Cập nhật bộ sưu tập thất bại');
+            this.editCollectionForm.reset();
           }
         });
     } else {
-      if (id === null) {
-        alert('Cập nhật bộ sưu tập thất bại');
-        return;
-      }
       const collectionData: Collection = {
         _id: id,
         title: formData.title || '',
@@ -143,6 +143,6 @@ export class EditCollectionComponent implements OnInit {
             this.editCollectionForm.reset();
           }
         });
-    } 
+    }
   }
 }

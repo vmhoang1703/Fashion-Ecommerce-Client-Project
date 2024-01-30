@@ -5,7 +5,7 @@
       ><i>{{ collection.title }}</i></span
     >
   </h3>
-  <form (ngSubmit)="updateCollection()" [formGroup]="editCollectionForm">
+  <form (ngSubmit)="updateCollection()" [formGroup]="editCollectionForm" class="mt-4">
     <div class="form-group mb-4">
       <label for="title">Tên</label>
       <input
@@ -28,7 +28,7 @@
       ></textarea>
     </div>
     <div class="form-group mb-4">
-      <label for="imageUrl">Ảnh hiện tại: </label>
+      <label for="imageUrl">Ảnh hiện tại </label>
       <br />
       <img
         [src]="collection.imageUrl"
@@ -39,7 +39,7 @@
       />
     </div>
     <div class="form-group mb-4">
-      <label for="imageUrl">Tải ảnh mới lên: </label>
+      <label for="imageUrl">Thay bằng ảnh mới (chỉ được chọn 1 ảnh) </label>
       <input
         type="file"
         class="form-control mt-2"
@@ -48,6 +48,6 @@
         (change)="onFileSelected($event)"
       />
     </div>
-    <button type="submit" class="btn btn-custom">Cập nhật bộ sưu tập</button>
+    <button type="submit" class="btn btn-custom mt-3">Cập nhật bộ sưu tập</button>
   </form>
 </div>
