@@ -28,7 +28,7 @@ export class CollectionService {
     return this.http.delete(`${this.baseUrl}/delete/${id}`);
   }
 
-  getCollectionById(id: string): Observable<Collection> {
+  getCollectionById(id: string): Observable<any> {
     return this.http.get<Collection>(`${this.baseUrl}/${id}`);
   }
 

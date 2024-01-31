@@ -16,11 +16,13 @@ import { AdminProductComponent } from './components/admin/admin-product/admin-pr
 import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
 import { ShowProductComponent } from './components/admin/admin-product/show-product/show-product.component';
+import { ProductsByCollectionComponent } from './components/products-by-collection/products-by-collection.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'collections', component: CollectionComponent },
+  { path: 'collections/:id/products', component: ProductsByCollectionComponent},
   {
     path: 'admin',
     component: AdminComponent,

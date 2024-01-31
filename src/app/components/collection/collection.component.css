@@ -1,7 +1,22 @@
-.header {
-  background: linear-gradient(300deg, #cd6f00, #8f541c, #46362e);
-  background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;
+.intro {
+  background: linear-gradient(45deg, #f58539, #ffffff, #f58539);
+  background-size: 200% 200%;
+  animation: gradient-animation 10s ease infinite;
+  border-radius: 10px;
+  padding: 20px; 
+  color: #333;
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  z-index: -1;
+  border-radius: 10px;
 }
 
 @keyframes gradient-animation {
@@ -14,4 +29,22 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.btn-custom{
+  background-color: #46362e;
+  border-color: #46362e;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.btn-custom:active {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
 }

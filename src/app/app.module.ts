@@ -11,6 +11,21 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NgxSliderModule } from 'ngx-slider-v2';
+
+// Import Services
+import { AuthService } from './services/auth.service';
+import { RegisterModalService } from './services/register-modal.service';
+import { LoginModalService } from './services/login-modal.service';
+import { ProductService } from './services/product.service';
+import { FileUploadService } from './services/file-upload.service';
+import { CollectionService } from './services/collection.service';
+
+// Import Guards
+import { LoginGuard } from './guards/login.guard';
+
+// Import Environment
+import { environment } from './environments/environment';
 
 // Import Components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -30,20 +45,7 @@ import { AdminProductComponent } from './components/admin/admin-product/admin-pr
 import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
 import { ShowProductComponent } from './components/admin/admin-product/show-product/show-product.component';
-
-// Import Services
-import { AuthService } from './services/auth.service';
-import { RegisterModalService } from './services/register-modal.service';
-import { LoginModalService } from './services/login-modal.service';
-import { ProductService } from './services/product.service';
-import { FileUploadService } from './services/file-upload.service';
-import { CollectionService } from './services/collection.service';
-
-// Import Guards
-import { LoginGuard } from './guards/login.guard';
-
-// Import Environment
-import { environment } from './environments/environment';
+import { ProductsByCollectionComponent } from './components/products-by-collection/products-by-collection.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { environment } from './environments/environment';
     CreateProductComponent,
     EditProductComponent,
     ShowProductComponent,
+    ProductsByCollectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +90,7 @@ import { environment } from './environments/environment';
     }),
     NgImageSliderModule,
     AngularEditorModule,
+    NgxSliderModule
   ],
   providers: [
     AuthService,

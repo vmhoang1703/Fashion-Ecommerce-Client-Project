@@ -5,7 +5,7 @@
   >
     <div class="col-md-3 mb-2 mb-md-0 text-center">
       <div class="row align-items-center">
-        <div class="col-md-3">
+        <div class="col-md-3 animate__animated animate__heartBeat">
           <a
             routerLink="/"
             class="d-inline-flex link-body-emphasis text-decoration-none"
@@ -19,7 +19,7 @@
             />
           </a>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 animate__animated animate__backInLeft">
           <a
             routerLink="/"
             class="text-decoration-none dancing-font"
@@ -31,27 +31,29 @@
       </div>
     </div>
 
-    <ul class="nav col-12 col-md-4 mb-2 justify-content-center mb-md-0">
+    <ul class="nav col-12 col-md-5 mb-2 justify-content-center mb-md-0">
       <li><a routerLink="/" class="nav-link px-3">Trang chủ</a></li>
       <li><a routerLink="/collections" class="nav-link px-3">Bộ sưu tập</a></li>
+      <li><a routerLink="/products" class="nav-link px-3">Sản phẩm</a></li>
       <li><a routerLink="/blog" class="nav-link px-3">Blog</a></li>
       <li><a routerLink="/about-us" class="nav-link px-3">Về chúng tôi</a></li>
     </ul>
 
-    <div class="col-md-2 text-end">
+    <div class="col-md-1 text-end">
       <form class="d-flex">
         <input
-          class="form-control"
+          class="form-control ps-1 py-1"
           type="search"
-          placeholder="Tìm kiếm"
+          placeholder="Tìm kiếm..."
           aria-label="Search"
+          style="padding: 0; font-size: 0.85rem; font-weight: 400"
         />
-        <button class="btn" type="submit">
+        <button class="btn" type="submit" style="padding: 0; margin-left: 5px">
           <img
             src="assets/search.png"
             alt="search icon"
-            width="22px"
-            height="22px"
+            width="15px"
+            height="15px"
           />
         </button>
       </form>
