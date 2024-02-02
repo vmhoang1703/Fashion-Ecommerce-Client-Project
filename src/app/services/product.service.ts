@@ -38,4 +38,8 @@ export class ProductService {
   updateProduct(id: string, productData: Product): Observable<any> {
     return this.http.put(`${this.baseUrl}/update/${id}`, productData);
   }
+
+  filterProduct(filters: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/filter`, filters);
+  }
 }

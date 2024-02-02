@@ -46,6 +46,8 @@ import { CreateProductComponent } from './components/admin/admin-product/create-
 import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
 import { ShowProductComponent } from './components/admin/admin-product/show-product/show-product.component';
 import { ProductsByCollectionComponent } from './components/products-by-collection/products-by-collection.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { ProductsByCollectionComponent } from './components/products-by-collecti
     EditProductComponent,
     ShowProductComponent,
     ProductsByCollectionComponent,
+    BlogComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

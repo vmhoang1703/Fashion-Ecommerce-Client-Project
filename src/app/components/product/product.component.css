@@ -1,0 +1,26 @@
+.products-body {
+    min-height: 100vh;
+  }
+  
+  .btn-custom {
+    background-color: #46362e;
+    border-color: #46362e;
+    color: white;
+  }
+  
+  .btn-custom:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #46362e;
+    border-color: #46362e;
+  }
+  
+  .btn-custom:active {
+    background-color: white;
+    color: #46362e;
+    border-color: #46362e;
+  }
+  
+  .form-label {
+    font-weight: 500;
+  }
+  

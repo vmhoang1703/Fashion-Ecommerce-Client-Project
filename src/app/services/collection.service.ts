@@ -11,7 +11,7 @@ export class CollectionService {
 
   constructor(private http: HttpClient) {}
 
-  getCollections(): Observable<Collection[]> {
+  getCollections(): Observable<any> {
     return this.http.get<Collection[]>(this.baseUrl);
   }
 

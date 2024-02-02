@@ -1,0 +1,94 @@
+<div class="container-fluid my-3 products-body">
+  <!-- Sort By -->
+  <div
+    class="d-flex justify-content-end mt-4 pe-4"
+    [formGroup]="filterForm"
+    (change)="onChangeFilters()"
+  >
+    <div class="mb-1 col-md-2 col-sm-6 col-xs-12">
+      <select class="form-select" id="sortBy" formControlName="sortBy">
+        <option value="newest">Mới nhất</option>
+        <option value="oldest">Cũ nhất</option>
+        <option value="bestseller">Bán chạy nhất</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <!-- Filter Section -->
+    <div
+      class="col-md-3 col-sm-12 col-xs-12 mb-5 animate__animated animate__fadeIn px-5"
+    >
+      <!-- <h1 class="text-center dancing-font mb-4" style="color: #cd6f00">
+        Bộ lọc
+      </h1> -->
+      <form [formGroup]="filterForm" (change)="onChangeFilters()">
+        <!-- Price Range -->
+        <div class="mb-4">
+          <label for="priceRange" class="form-label mb-2"
+            >Chọn khoảng giá</label
+          >
+          <ngx-slider
+            [(value)]="minValue"
+            [(highValue)]="maxValue"
+            [options]="options"
+            formControlName="priceRange"
+            (userChangeEnd)="onChangeFilters()"
+          ></ngx-slider>
+        </div>
+        <!-- Select Collection -->
+        <div class="mb-4 border-top">
+          <label class="form-label my-2">Bộ sưu tập</label>
+          <div *ngFor="let collection of collections; let i = index" class="form-check ps-5">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              [value]="collection._id"
+              (change)="onCheckboxChange($event)"
+            />
+            <label class="form-check-label" [for]="collection._id">{{
+              collection.title
+            }}</label>
+          </div>
+        </div>
+        <!-- Products Status -->
+        <div class="mb-4 border-top">
+          <label class="form-label my-2">Tình trạng sản phẩm</label>
+          <div class="form-check ps-5">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="inStock"
+              formControlName="inStock"
+            />
+            <label class="form-check-label" for="inStock">Còn hàng</label>
+          </div>
+          <div class="form-check ps-5">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="outOfStock"
+              formControlName="outOfStock"
+            />
+            <label class="form-check-label" for="outOfStock">Hết hàng</label>
+          </div>
+        </div>
+
+        <!-- <div class="d-flex align-items-end justify-content-center">
+          <button type="submit" class="btn btn-custom">Áp dụng</button>
+        </div> -->
+      </form>
+    </div>
+
+    <!-- Product Cards Section -->
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <div class="row">
+        <app-card
+          *ngFor="let product of products"
+          [product]="product"
+          class="col-md-4 col-sm-6 col-xs-12 mb-5 d-flex align-items-stretch justify-content-center animate__animated animate__backInRight"
+        ></app-card>
+      </div>
+    </div>
+  </div>
+</div>
