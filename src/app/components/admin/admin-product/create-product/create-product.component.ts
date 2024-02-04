@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Collection } from 'src/app/models/collection';
 import { FileUpload } from 'src/app/models/file-upload';
@@ -40,6 +46,10 @@ export class CreateProductComponent {
       quantity: [''],
       collectionId: [''],
       imageUrls: [''],
+      size: [''],
+      material: [''],
+      color: [''],
+      brand: ['Phương Fashion'],
     });
     this.getCollections();
   }
@@ -85,6 +95,11 @@ export class CreateProductComponent {
                 collectionId: formData.collectionId,
                 imageUrls: downloadImagesUrl,
                 mainImageUrl: downloadImagesUrl[0],
+                size: formData.size,
+                material: formData.material,
+                color: formData.color,
+                brand: formData.brand,
+                favoriteCount: 0,
               };
 
               this.productService.createProduct(productData).subscribe(

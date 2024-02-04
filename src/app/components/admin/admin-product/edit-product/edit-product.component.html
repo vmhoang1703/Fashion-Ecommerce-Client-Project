@@ -25,6 +25,7 @@
         </div>
       </div>
     </div>
+
     <div class="form-group mb-4">
       <label for="imageUrls">Tải ảnh sản phẩm lên (có thể chọn nhiều ảnh)</label>
       <input
@@ -37,6 +38,7 @@
         multiple
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="name">Tên </label>
       <input
@@ -48,6 +50,7 @@
         [value]="product.name"
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="description">Mô tả </label>
       <textarea
@@ -58,6 +61,7 @@
         [value]="product.description"
       ></textarea>
     </div>
+
     <div class="form-group mb-4">
       <label for="price">Giá </label>
       <input
@@ -69,6 +73,7 @@
         [value]="product.price"
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="quantity">Số lượng </label>
       <input
@@ -80,6 +85,7 @@
         [value]="product.quantity"
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="collection">Bộ sưu tập </label>
       <select
@@ -93,6 +99,55 @@
           {{ collection.title }}
         </option>
       </select>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="size">Size </label>
+      <select
+        class="form-control mt-2"
+        id="size"
+        name="size"
+        formControlName="size"
+      >
+        <option value="">Chọn size</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="material">Chất liệu </label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="material"
+        name="material"
+        formControlName="material"
+      />
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="color">Màu sắc </label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="color"
+        name="color"
+        formControlName="color"
+      />
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="brand">Hãng </label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="brand"
+        name="brand"
+        formControlName="brand"
+      />
     </div>
     <button type="submit" class="btn btn-custom mt-3">Cập nhật sản phẩm</button>
   </form>

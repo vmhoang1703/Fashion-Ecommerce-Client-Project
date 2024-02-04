@@ -8,4 +8,9 @@ export interface Product {
   collectionId: string;
   imageUrls: string[];
   mainImageUrl: string;
+  size: string,
+  material: string;
+  color: string,
+  brand: string,
+  favoriteCount: number,
 }

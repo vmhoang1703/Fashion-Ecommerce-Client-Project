@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Collection } from 'src/app/models/collection';
 import { FileUpload } from 'src/app/models/file-upload';
@@ -21,7 +21,6 @@ export class EditProductComponent implements OnInit {
   currentImagesUpload!: FileUpload[];
   imageToDelete!: number;
   imagesToDeleteIndex!: number[];
-
   public loading = false;
 
   constructor(
@@ -42,12 +41,16 @@ export class EditProductComponent implements OnInit {
       collectionId: [''],
       imageUrls: [''],
       imagesToDelete: [''],
+      size: [''],
+      material: [''],
+      color: [''],
+      brand: ['Phương Fashion'],
     });
     this.imagesToDeleteIndex = [];
     this.getCollections();
     this.getProduct();
   }
-
+  
   onImagesSelected(event: any) {
     this.images = event.target.files ? Array.from(event.target.files) : [];
   }
@@ -70,6 +73,10 @@ export class EditProductComponent implements OnInit {
             price: this.product.price,
             quantity: this.product.quantity,
             collectionId: this.product.collectionId,
+            size: this.product.size,
+            material: this.product.material,
+            color: this.product.color,
+            brand: this.product.brand
           });
         },
         (error) => {
@@ -126,6 +133,11 @@ export class EditProductComponent implements OnInit {
               collectionId: formData.collectionId || '',
               imageUrls: this.product.imageUrls,
               mainImageUrl: this.product.imageUrls[0],
+              size: formData.size || '',
+              material: formData.material || '',
+              color: formData.color || '',
+              brand: formData.brand || '',
+              favoriteCount: this.product.favoriteCount,
             };
 
             this.productService
@@ -163,6 +175,11 @@ export class EditProductComponent implements OnInit {
         collectionId: formData.collectionId || '',
         imageUrls: this.product.imageUrls,
         mainImageUrl: this.product.imageUrls[0],
+        size: formData.size || '',
+        material: formData.material || '',
+        color: formData.color || '',
+        brand: formData.brand || '',
+        favoriteCount: this.product.favoriteCount,
       };
 
       this.productService

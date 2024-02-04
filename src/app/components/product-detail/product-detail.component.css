@@ -1,0 +1,38 @@
+.product-detail-body {
+  min-height: 100vh;
+}
+
+.icon-hover:hover {
+  border-color: #ca3b3b !important;
+  background-color: white !important;
+  color: #ca3b3b !important;
+}
+
+.icon-hover:hover i {
+  color: #ca3b3b !important;
+}
+
+/* product-detail.component.css */
+
+.image-slider {
+  position: relative;
+}
+
+.thumbnail-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.thumbnail img {
+  width: 50px;
+  height: 50px;
+}
+
+.thumbnail.selected {
+  border: 2px solid #007bff;
+}

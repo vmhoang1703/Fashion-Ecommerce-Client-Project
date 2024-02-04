@@ -60,10 +60,7 @@
     </div>
 
     <!-- Login and register buttons -->
-    <div
-      class="col-md-auto text-end"
-      *ngIf="!isLoggedIn; else userSection"
-    >
+    <div class="col-md-auto text-end" *ngIf="!isLoggedIn; else userSection">
       <button
         type="button"
         class="btn btn-outline-primary me-2 btn-login"
@@ -93,76 +90,83 @@
         </span>
 
         <div class="hover-items text-center">
-          <button
-            type="button"
-            class="btn btn-link text-decoration-none"
-            style="color: black"
-          >
-            <img
-              src="assets/user.png"
-              class="me-1"
-              alt="user icon"
-              width="17px"
-              height="17px"
-              style="margin-top: -3px"
-            />
-            <span class="text-item">Tài khoản</span>
-          </button>
+          <a href="">
+            <button
+              type="button"
+              class="btn btn-link text-decoration-none"
+              style="color: black"
+            >
+              <img
+                src="assets/user.png"
+                class="me-1"
+                alt="user icon"
+                width="17px"
+                height="17px"
+                style="margin-top: -3px"
+              />
+              <span class="text-item">Tài khoản</span>
+            </button>
+          </a>
 
           <br />
 
-          <button
-            type="button"
-            class="btn btn-link text-decoration-none"
-            style="color: black"
-          >
-            <img
-              src="assets/shopping-bag.png"
-              class="me-1"
-              alt="cart icon"
-              width="17px"
-              height="17px"
-              style="margin-left: -3px; margin-top: -3px"
-            />
-            <span class="text-item">Giỏ hàng</span>
-          </button>
+          <a href="">
+            <button
+              type="button"
+              class="btn btn-link text-decoration-none"
+              style="color: black"
+            >
+              <img
+                src="assets/shopping-bag.png"
+                class="me-1"
+                alt="cart icon"
+                width="17px"
+                height="17px"
+                style="margin-left: -3px; margin-top: -3px"
+              />
+              <span class="text-item">Giỏ hàng</span>
+            </button>
+          </a>
 
           <br />
 
-          <button
-            type="button"
-            class="btn btn-link text-decoration-none"
-            style="color: black; margin-bottom: -10px"
-          >
-            <img
-              src="assets/heart.png"
-              class="me-1"
-              alt="heart icon"
-              width="17px"
-              height="17px"
-              style="margin-top: -3px"
-            />
-            <span class="text-item">Yêu thích</span>
-          </button>
+          <a href="">
+            <button
+              type="button"
+              class="btn btn-link text-decoration-none"
+              style="color: black; margin-bottom: -10px"
+            >
+              <img
+                src="assets/heart.png"
+                class="me-1"
+                alt="heart icon"
+                width="17px"
+                height="17px"
+                style="margin-top: -3px"
+              />
+              <span class="text-item">Yêu thích</span>
+            </button>
+          </a>
 
           <!-- Nút dẫn đến trang admin -->
-          <button
-            type="button"
-            class="btn btn-link text-decoration-none"
-            style="color: black; margin-top: 10px; margin-bottom: -10px"
-            *ngIf="isAdmin"
-            routerLink="/admin"
-          >
-            <img
-              src="assets/admin.png"
-              class="me-1"
-              alt="admin icon"
-              width="17px"
-              height="17px"
-              style="margin-left: -7px; margin-top: -3px"
-            />
-            <span class="text-item">Quản lý</span>
-          </button>
+          <a routerLink="/admin">
+            <button
+              type="button"
+              class="btn btn-link text-decoration-none"
+              style="color: black; margin-top: 10px; margin-bottom: -10px"
+              *ngIf="isAdmin"
+            >
+              <img
+                src="assets/admin.png"
+                class="me-1"
+                alt="admin icon"
+                width="17px"
+                height="17px"
+                style="margin-left: -7px; margin-top: -3px"
+              />
+              <span class="text-item">Quản lý</span>
+            </button>
+          </a>
 
           <hr />
 

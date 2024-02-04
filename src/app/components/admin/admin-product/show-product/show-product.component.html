@@ -6,13 +6,13 @@
     >
   </h3>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
       <ng-image-slider [images]="imageObject" #nav> </ng-image-slider>
       <!-- <button (click)="prevImageClick()">Prev</button> -->
       <!-- <button (click)="nextImageClick()">Next</button> -->
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-7">
       <div class="mb-3"><strong>Tên:</strong> {{ product.name }}</div>
       <div class="mb-3"><strong>Bộ sưu tập:</strong> {{ collectionTitle }}</div>
       <div class="mb-3"><strong>Mô tả:</strong> {{ product.description }}</div>
@@ -20,6 +20,10 @@
         <strong>Giá:</strong>
         {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
       </div>
+      <div class="mb-3"><strong>Màu sắc:</strong> {{ product.color }}</div>
+      <div class="mb-3"><strong>Chất liệu:</strong> {{ product.material }}</div>
+      <div class="mb-3"><strong>Size:</strong> {{ product.size }}</div>
+      <div class="mb-3"><strong>Hãng:</strong> {{ product.brand }}</div>
       <div class="mb-3"><strong>Số lượng:</strong> {{ product.quantity }}</div>
       <div class="mb-3"><strong>Đã bán:</strong> {{ product.sold }}</div>
     </div>

@@ -1,4 +1,8 @@
-<div class="card product-card py-2" style="width: 15rem">
+<div
+  class="card product-card py-2"
+  style="width: 15rem"
+  [routerLink]="['/products', product._id]"
+>
   <img
     (click)="toggleHeart()"
     [src]="heartIconSrc"
@@ -10,12 +14,18 @@
   <img
     [src]="product.mainImageUrl"
     class="card-img-top my-4 product-img"
-    alt="{{ product.name }} Image"  
+    alt="{{ product.name }} Image"
   />
   <div class="card-body mx-3">
-    <h5 class="card-title">{{ product.name }}</h5>
-    <p class="card-text" style="color: red">{{ product.price | currency:'VND':'symbol':'1.0-0' }}</p>
-    <p class="card-text" style="margin-top: -10px;">Đã bán: {{ product.sold }}</p>
+    <h5 class="card-title">
+      {{ product.name }}
+    </h5>
+    <p class="card-text" style="color: red">
+      {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+    </p>
+    <p class="card-text" style="margin-top: -10px">
+      Đã bán: {{ product.sold }}
+    </p>
     <!-- <p class="card-text">{{ product.description }}</p> -->
     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
   </div>

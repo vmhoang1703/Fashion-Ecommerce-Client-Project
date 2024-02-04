@@ -19,6 +19,7 @@ import { ShowProductComponent } from './components/admin/admin-product/show-prod
 import { ProductsByCollectionComponent } from './components/products-by-collection/products-by-collection.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'collections', component: CollectionComponent },
   { path: 'collections/:id/products', component: ProductsByCollectionComponent },
   { path: 'products', component: ProductComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
   { path: 'blogs', component: BlogComponent },
   {
     path: 'admin',

@@ -48,6 +48,7 @@ import { ShowProductComponent } from './components/admin/admin-product/show-prod
 import { ProductsByCollectionComponent } from './components/products-by-collection/products-by-collection.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { ProductComponent } from './components/product/product.component';
     ProductsByCollectionComponent,
     BlogComponent,
     ProductComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,14 @@
 <div class="container">
   <h3 class="mb-3">Trang thêm sản phẩm</h3>
-  <form (ngSubmit)="createProduct()" [formGroup]="createProductForm" class="my-4">
+  <form
+    (ngSubmit)="createProduct()"
+    [formGroup]="createProductForm"
+    class="my-4"
+  >
     <div class="form-group mb-4">
       <label for="imageUrls"
-        >Tải ảnh sản phẩm lên (có thể chọn nhiều ảnh) <span class="required">*</span></label
+        >Tải ảnh sản phẩm lên (có thể chọn nhiều ảnh)
+        <span class="required">*</span></label
       >
       <input
         type="file"
@@ -15,6 +20,7 @@
         multiple
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="name">Tên <span class="required">*</span></label>
       <input
@@ -26,6 +32,7 @@
         required
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="description">Mô tả <span class="required">*</span></label>
       <textarea
@@ -36,6 +43,7 @@
         required
       ></textarea>
     </div>
+
     <div class="form-group mb-4">
       <label for="price">Giá <span class="required">*</span></label>
       <input
@@ -47,6 +55,7 @@
         required
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="quantity">Số lượng <span class="required">*</span></label>
       <input
@@ -58,6 +67,7 @@
         required
       />
     </div>
+
     <div class="form-group mb-4">
       <label for="collection">Bộ sưu tập <span class="required">*</span></label>
       <select
@@ -74,31 +84,57 @@
       </select>
     </div>
 
-    <!-- <div class="form-group mb-4">
-      <label for="mainImageUrl">Tải ảnh chính lên <span class="required">*</span></label>
-      <input
-        type="file"
+    <div class="form-group mb-4">
+      <label for="size">Size <span class="required">*</span></label>
+      <select
         class="form-control mt-2"
-        id="mainImageUrl"
-        name="mainImageUrl"
-        formControlName="mainImageUrl"
-        (change)="onMainImgSelected($event)"
+        id="size"
+        name="size"
+        formControlName="size"
+        required
+      >
+        <option value="">Chọn size</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="material">Chất liệu <span class="required">*</span></label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="material"
+        name="material"
+        formControlName="material"
         required
       />
     </div>
+
     <div class="form-group mb-4">
-      <label for="otherImageUrls">Tải các ảnh khác lên <span class="required">*</span></label>
+      <label for="color">Màu sắc <span class="required">*</span></label>
       <input
-        type="file"
+        type="text"
         class="form-control mt-2"
-        id="otherImageUrls"
-        name="otherImageUrls"
-        formControlName="otherImageUrls"
-        (change)="onOtherImgsSelected($event)"
-        multiple
+        id="color"
+        name="color"
+        formControlName="color"
         required
       />
-    </div> -->
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="brand">Hãng </label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="brand"
+        name="brand"
+        formControlName="brand"
+      />
+    </div>
     <button type="submit" class="btn btn-custom mt-3">Tạo sản phẩm</button>
   </form>
 
