@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = `${environment.baseURL}'/api/auth'` ;
+  private baseUrl = `${environment.baseURL}/api/auth` ;
 
   private loggedIn$ = new BehaviorSubject<boolean>(false);
   private fullname$ = new BehaviorSubject<string | null>(null);

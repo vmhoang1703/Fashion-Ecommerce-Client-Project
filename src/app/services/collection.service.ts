@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class CollectionService {
-  private baseUrl = `${environment.baseURL}'/api/collections'`;
+  private baseUrl = `${environment.baseURL}/api/collections`;
 
   constructor(private http: HttpClient) {}
 
