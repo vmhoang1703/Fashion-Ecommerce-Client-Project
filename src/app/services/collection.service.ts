@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Collection } from '../models/collection';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CollectionService {
-  private baseUrl = 'http://localhost:5000/api/collections';
+  private baseUrl = `${environment.baseURL}'/api/collections'`;
 
   constructor(private http: HttpClient) {}
 
