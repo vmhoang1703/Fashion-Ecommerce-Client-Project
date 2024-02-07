@@ -1,4 +1,5 @@
-<app-navbar></app-navbar> 
+<app-navbar *ngIf="!isMobile"></app-navbar> 
+<app-sidebar *ngIf="isMobile"></app-sidebar>
 <app-register></app-register>
 <app-login></app-login>
 <router-outlet></router-outlet>

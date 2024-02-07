@@ -12,6 +12,8 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgxSliderModule } from 'ngx-slider-v2';
+import { SidebarModule } from 'primeng/sidebar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Import Services
 import { AuthService } from './services/auth.service';
@@ -49,6 +51,7 @@ import { ProductsByCollectionComponent } from './components/products-by-collecti
 import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     BlogComponent,
     ProductComponent,
     ProductDetailComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +100,9 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     }),
     NgImageSliderModule,
     AngularEditorModule,
-    NgxSliderModule
+    NgxSliderModule,
+    SidebarModule,
+    FlexLayoutModule,
   ],
   providers: [
     AuthService,

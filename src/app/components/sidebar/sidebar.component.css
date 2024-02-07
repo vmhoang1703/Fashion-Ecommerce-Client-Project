@@ -1,0 +1,127 @@
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 0.7s ease-in-out;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.nav-pills .nav-link {
+  color: #46362e;
+}
+
+.nav-pills .active .nav-link {
+  color: white;
+}
+
+/* .nav-pills .active .nav-link:hover {
+    color: white;
+  } */
+
+.nav-pills .nav-link:hover {
+  /* background-color: #46362e;
+    color: white;
+    border-radius: 10px; */
+  color: #f58539;
+}
+
+.nav-pills .active {
+  background-color: #46362e;
+  border-radius: 10px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#brand {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.dancing-font {
+  font-family: "Dancing Script", cursive;
+}
+
+.nav-link {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: #f58539;
+}
+
+.btn-login {
+  border-color: #46362e;
+  color: #46362e;
+}
+
+.btn-login:hover {
+  background-color: #46362e;
+  color: white;
+}
+
+.btn-login:hover:active {
+  border-color: #46362e;
+}
+
+.btn-register {
+  background-color: #46362e;
+  border-color: #46362e;
+  color: white;
+}
+
+.btn-register:hover {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.btn-register:active {
+  background-color: white;
+  color: #46362e;
+  border-color: #46362e;
+}
+
+.welcome-text {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.user-section {
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-items {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.user-section:hover .hover-items {
+  display: block;
+  right: 0;
+  z-index: 1;
+}
+
+.text-item {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 5px;
+}
