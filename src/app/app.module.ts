@@ -22,6 +22,7 @@ import { LoginModalService } from './services/login-modal.service';
 import { ProductService } from './services/product.service';
 import { FileUploadService } from './services/file-upload.service';
 import { CollectionService } from './services/collection.service';
+import { CartService } from './services/cart.service';
 
 // Import Guards
 import { LoginGuard } from './guards/login.guard';
@@ -52,6 +53,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ProductComponent,
     ProductDetailComponent,
     SidebarComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +115,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     LoginGuard,
     FileUploadService,
     CollectionService,
+    CartService
   ],
   bootstrap: [AppComponent],
 })

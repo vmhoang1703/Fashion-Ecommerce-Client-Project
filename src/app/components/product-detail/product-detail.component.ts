@@ -1,10 +1,17 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { error } from 'jquery';
 import { Collection } from 'src/app/models/collection';
 import { Product } from 'src/app/models/product';
 import { CollectionService } from 'src/app/services/collection.service';
 import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -19,7 +26,9 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private collectionService: CollectionService,
-    private route: ActivatedRoute
+    private cartService: CartService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,5 +59,11 @@ export class ProductDetailComponent implements OnInit {
 
   selectImage(index: number) {
     this.selectedImageIndex = index;
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    this.router.navigate(['/cart']);
+    window.alert('Your product has been added to the cart!');
   }
 }

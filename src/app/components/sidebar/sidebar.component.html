@@ -32,10 +32,7 @@
 </div>
 
 <p-sidebar [(visible)]="sidebarVisible1" position="left">
-  <div
-    class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
-    style="width: 280px"
-  >
+  <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px">
     <a
       routerLink="/"
       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
@@ -96,7 +93,12 @@
         <span
           ><span class="dancing-font welcome-text">Xin chào,</span>
           {{ fullname }}
-          <img src="assets/dropdown.png" alt="Dropdown Icon" width="20px" height="20px">
+          <img
+            src="assets/dropdown.png"
+            alt="Dropdown Icon"
+            width="20px"
+            height="20px"
+          />
         </span>
 
         <div class="hover-items text-center">

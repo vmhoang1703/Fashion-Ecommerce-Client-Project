@@ -1,0 +1,66 @@
+#title{
+    margin: 1%;
+}
+
+#shopping_cart {
+    margin-left: 1%;
+    background-color: white;
+    border-collapse: collapse;
+    width: 75%;
+    display: inline-block;
+    font-size: 13px;
+}
+
+#shopping_cart_heading{
+    background-color: white;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 10px solid #ededf7;
+    height: 40px;
+}
+
+.shop_name{
+    border-bottom: 30px solid white;
+    cursor: pointer;
+}
+.shopping_cart_info{
+    border-bottom: 80px solid white;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.product_name{
+    width: 30%;
+    padding-right: 5%;
+}
+
+.product_name p{
+    font-size: 12px;
+}
+
+s{
+    color: gray;
+    font-size: 11px;
+}
+
+.total_price{
+    color: red;
+}
+
+.input_number input[type="number"] {
+    width: 60px;
+    cursor: pointer;
+}
+
+#shipping_address {
+    border-spacing: 0px;
+    background-color: white;
+    display: inline-block; 
+    vertical-align: top;
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 22.25%;
+    font-size: 14px;
+}

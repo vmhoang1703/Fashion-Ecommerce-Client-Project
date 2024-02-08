@@ -20,6 +20,7 @@ import { ProductsByCollectionComponent } from './components/products-by-collecti
 import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'products', component: ProductComponent },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'blogs', component: BlogComponent },
+  { path: 'cart', component: CartComponent },
   {
     path: 'admin',
     component: AdminComponent,

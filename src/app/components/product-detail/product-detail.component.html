@@ -31,7 +31,9 @@
           <div class="image-slider">
             <img
               *ngIf="product.imageUrls"
-              [src]="product.imageUrls[selectedImageIndex] || product.mainImageUrl"
+              [src]="
+                product.imageUrls[selectedImageIndex] || product.mainImageUrl
+              "
               alt="{{ product.name }}"
               class="img-fluid w-100"
             />
@@ -42,7 +44,11 @@
                 [class.selected]="i === selectedImageIndex"
                 (click)="selectImage(i)"
               >
-                <img [src]="image" alt="{{ product.name }}" class="img-thumbnail" />
+                <img
+                  [src]="image"
+                  alt="{{ product.name }}"
+                  class="img-thumbnail"
+                />
               </div>
             </div>
           </div>
@@ -79,9 +85,7 @@
               }}</span>
             </div>
 
-            <p>
-              {{ product.description.slice(0,200) }}...
-            </p>
+            <p>{{ product.description.slice(0, 200) }}...</p>
 
             <div class="row">
               <dt class="col-3">Bộ sưu tập:</dt>
@@ -145,10 +149,14 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="btn btn-danger shadow-0 me-2"> Buy now </a>
-            <a href="#" class="btn btn-primary shadow-0 m-2">
-              <i class="me-1 fa fa-shopping-basket"></i> Add to cart
-            </a>
+            <a href="#" class="btn btn-danger shadow-0 me-2"> Mua ngay </a>
+            <button
+              class="btn btn-primary shadow-0 m-2"
+              (click)="addToCart(product)"
+            >
+              <i class="me-1 fa fa-shopping-basket"></i>
+              Thêm vào giỏ hàng
+            </button>
             <a
               href="#"
               class="btn btn-light border border-secondary icon-hover px-3 m-2"

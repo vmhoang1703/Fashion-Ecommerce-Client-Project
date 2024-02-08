@@ -1,0 +1,131 @@
+<div class="container my-3">
+  <!-- Breadcumb -->
+  <div class="bg-light">
+    <div class="row">
+      <div class="col-lg-9 mb-3">
+        <div class="card p-3">
+          <div class="content-body">
+            <h4 class="card-title mb-4">Giỏ hàng của bạn</h4>
+            <table class="table">
+              <thead>
+                <tr class="row">
+                  <th class="col-6">Sản phẩm</th>
+                  <th class="col-2">Số lượng</th>
+                  <th class="col-2">Giá</th>
+                  <th class="col-2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items" class="row">
+                  <td class="col-6">
+                    <div class="row itemside">
+                      <div class="aside col-3">
+                        <img
+                          src="{{ item.mainImageUrl }}"
+                          class="img-sm img-thumbnail"
+                        />
+                      </div>
+                      <div class="info col-9">
+                        <a
+                          [routerLink]="['/products', item._id]"
+                          class="title nav-link"
+                          >{{ item.name }}</a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                  <td class="col-2">
+                    <div class="input-group">
+                      <input
+                        type="number"
+                        class="form-control"
+                        value="1"
+                        min="1"
+                        max="10"
+                        aria-label="Số lượng"
+                      />
+                    </div>
+                  </td>
+                  <td class="col-2">
+                    <h6 class="price mt-2">
+                      {{ item.price | currency : "VND" : "symbol" : "1.0-0" }}
+                    </h6>
+                  </td>
+                  <td class="col-2">
+                    <div class="float-lg-end">
+                      <a href="#" class="btn btn-light text-danger">
+                        <img
+                          src="assets/delete.png"
+                          alt="Delete icon"
+                          width="30px"
+                          height="30px"
+                        />
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <aside class="col-lg-3">
+        <!-- <div class="card mb-3">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label class="form-label">Nhập mã giảm giá (nếu có)</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name=""
+                      placeholder="Nhập mã..."
+                    />
+                    <button class="btn btn-light">Áp dụng</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div> -->
+
+        <div class="card">
+          <div class="card-body">
+            <dl class="dlist-align">
+              <div class="row">
+                <dt class="col-lg-7">Tổng giá sản phẩm:</dt>
+                <dd class="col-lg-5 text-end"></dd>
+              </div>
+            </dl>
+            <dl class="dlist-align">
+              <div class="row">
+                <dt class="col-lg-7">Giảm giá:</dt>
+                <dd class="col-lg-5 text-end text-success"></dd>
+              </div>
+            </dl>
+            <dl class="dlist-align">
+              <div class="row">
+                <dt class="col-lg-7">Thuế:</dt>
+                <dd class="col-lg-5 text-end"></dd>
+              </div>
+            </dl>
+            <hr />
+            <dl class="dlist-align">
+              <div class="row">
+                <dt class="col-lg-7">Tổng cộng:</dt>
+                <dd class="col-lg-5 text-end text-dark h5"></dd>
+              </div>
+            </dl>
+
+            <div class="d-grid gap-2 my-3">
+              <a href="#" class="btn btn-danger w-100"> Mua </a>
+              <a href="#" class="btn btn-secondary w-100"> Quay lại </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <br /><br />
+  </div>
+</div>

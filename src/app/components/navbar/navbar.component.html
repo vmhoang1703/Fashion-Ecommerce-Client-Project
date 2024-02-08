@@ -87,13 +87,19 @@
         <span
           ><span class="dancing-font welcome-text">Xin chào,</span>
           {{ fullname }}
+          <img
+            src="assets/dropdown.png"
+            alt="Dropdown Icon"
+            width="20px"
+            height="20px"
+          />
         </span>
 
         <div class="hover-items text-center">
           <a href="">
             <button
               type="button"
-              class="btn btn-link text-decoration-none"
+              class="btn btn-link text-decoration-none col-12"
               style="color: black"
             >
               <img
@@ -110,10 +116,10 @@
 
           <br />
 
-          <a href="">
+          <a routerLink="/cart">
             <button
               type="button"
-              class="btn btn-link text-decoration-none"
+              class="btn btn-link text-decoration-none col-12"
               style="color: black"
             >
               <img
@@ -133,7 +139,7 @@
           <a href="">
             <button
               type="button"
-              class="btn btn-link text-decoration-none"
+              class="btn btn-link text-decoration-none col-12"
               style="color: black; margin-bottom: -10px"
             >
               <img
@@ -152,7 +158,7 @@
           <a routerLink="/admin">
             <button
               type="button"
-              class="btn btn-link text-decoration-none"
+              class="btn btn-link text-decoration-none col-12"
               style="color: black; margin-top: 10px; margin-bottom: -10px"
               *ngIf="isAdmin"
             >
@@ -172,7 +178,7 @@
 
           <button
             type="button"
-            class="btn btn-link text-decoration-none"
+            class="btn btn-link text-decoration-none col-12"
             style="color: #eb6763; margin-top: -10px"
             (click)="logout()"
           >
