@@ -1,8 +1,8 @@
-<div class="container my-3">
+<div class="container my-3" style="min-height: 100vh">
   <!-- Breadcumb -->
   <div class="bg-light">
-    <div class="row">
-      <div class="col-lg-9 mb-3">
+    <form (ngSubmit)="submitCart()" [formGroup]="cartForm" class="mb-3 row">
+      <div class="col-9">
         <div class="card p-3">
           <div class="content-body">
             <h4 class="card-title mb-4">Giỏ hàng của bạn</h4>
@@ -18,50 +18,56 @@
               <tbody>
                 <tr *ngFor="let item of items" class="row">
                   <td class="col-6">
-                    <div class="row itemside">
+                    <div class="row itemside d-flex align-items-center">
                       <div class="aside col-3">
                         <img
-                          src="{{ item.mainImageUrl }}"
+                          src="{{ item.product.mainImageUrl }}"
                           class="img-sm img-thumbnail"
                         />
                       </div>
                       <div class="info col-9">
                         <a
-                          [routerLink]="['/products', item._id]"
+                          [routerLink]="['/products', item.product._id]"
                           class="title nav-link"
-                          >{{ item.name }}</a
+                          >{{ item.product.name }}</a
                         >
                       </div>
                     </div>
                   </td>
-                  <td class="col-2">
-                    <div class="input-group">
+                  <td class="col-2 d-flex align-items-center">
+                    <p class="quantityBuy">
+                      {{ item.quantityBuy }}
+                    </p>
+                    <!-- <div class="input-group">
                       <input
                         type="number"
                         class="form-control"
-                        value="1"
+                        [value]="item.quantityBuy"
                         min="1"
                         max="10"
                         aria-label="Số lượng"
+                        formControlName="quantityBuy"
+                        (change)="updateCart(item.product)" 
                       />
-                    </div>
+                    </div> -->
                   </td>
-                  <td class="col-2">
-                    <h6 class="price mt-2">
-                      {{ item.price | currency : "VND" : "symbol" : "1.0-0" }}
+                  <td class="col-2 d-flex align-items-center">
+                    <h6 class="price">
+                      {{
+                        item.product.price * item.quantityBuy
+                          | currency : "VND" : "symbol" : "1.0-0"
+                      }}
                     </h6>
                   </td>
-                  <td class="col-2">
-                    <div class="float-lg-end">
-                      <a href="#" class="btn btn-light text-danger">
-                        <img
-                          src="assets/delete.png"
-                          alt="Delete icon"
-                          width="30px"
-                          height="30px"
-                        />
-                      </a>
-                    </div>
+                  <td class="col-2 d-flex align-items-center justify-content-end">
+                    <a href="#" class="btn btn-light text-danger">
+                      <img
+                        src="assets/delete.png"
+                        alt="Delete icon"
+                        width="30px"
+                        height="30px"
+                      />
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -70,62 +76,67 @@
         </div>
       </div>
       <aside class="col-lg-3">
-        <!-- <div class="card mb-3">
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label class="form-label">Nhập mã giảm giá (nếu có)</label>
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name=""
-                      placeholder="Nhập mã..."
-                    />
-                    <button class="btn btn-light">Áp dụng</button>
-                  </div>
-                </div>
-              </form>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="form-group">
+              <label class="form-label">Nhập mã giảm giá (nếu có)</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  placeholder="Nhập mã..."
+                  formControlName="discountCode"
+                />
+              </div>
+              <button type="submit" class="btn btn-custom mt-2">Áp dụng</button>
             </div>
-          </div> -->
+          </div>
+        </div>
 
         <div class="card">
           <div class="card-body">
             <dl class="dlist-align">
               <div class="row">
                 <dt class="col-lg-7">Tổng giá sản phẩm:</dt>
-                <dd class="col-lg-5 text-end"></dd>
+                <dd class="col-lg-5 text-end">
+                  {{ productsPrice | currency : "VND" : "symbol" : "1.0-0" }}
+                </dd>
               </div>
             </dl>
             <dl class="dlist-align">
               <div class="row">
                 <dt class="col-lg-7">Giảm giá:</dt>
-                <dd class="col-lg-5 text-end text-success"></dd>
+                <dd class="col-lg-5 text-end text-success">
+                  {{ discountPrice | currency : "VND" : "symbol" : "1.0-0" }}
+                </dd>
               </div>
             </dl>
             <dl class="dlist-align">
               <div class="row">
                 <dt class="col-lg-7">Thuế:</dt>
-                <dd class="col-lg-5 text-end"></dd>
+                <dd class="col-lg-5 text-end">
+                  {{ taxPrice | currency : "VND" : "symbol" : "1.0-0" }}
+                </dd>
               </div>
             </dl>
             <hr />
             <dl class="dlist-align">
               <div class="row">
                 <dt class="col-lg-7">Tổng cộng:</dt>
-                <dd class="col-lg-5 text-end text-dark h5"></dd>
+                <dd class="col-lg-5 text-end text-dark h6">
+                  {{ totalPrice | currency : "VND" : "symbol" : "1.0-0" }}
+                </dd>
               </div>
             </dl>
 
             <div class="d-grid gap-2 my-3">
-              <a href="#" class="btn btn-danger w-100"> Mua </a>
+              <button type="submit" class="btn btn-danger w-100"> Mua </button>
               <a href="#" class="btn btn-secondary w-100"> Quay lại </a>
             </div>
           </div>
         </div>
       </aside>
-    </div>
-
-    <br /><br />
+    </form>
   </div>
 </div>

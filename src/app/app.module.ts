@@ -54,6 +54,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CartComponent } from './components/cart/cart.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { CartComponent } from './components/cart/cart.component';
     ProductDetailComponent,
     SidebarComponent,
     CartComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,8 @@ export class ProductDetailComponent implements OnInit {
   product!: Product;
   collection!: Collection;
   selectedImageIndex!: number;
+  inputQuantity: number = 1;
+  finalQuantityBuy: number = 1;
 
   constructor(
     private productService: ProductService,
@@ -61,9 +63,14 @@ export class ProductDetailComponent implements OnInit {
     this.selectedImageIndex = index;
   }
 
+  getInputQuantity(event: number){
+    this.finalQuantityBuy = event;
+    console.log(this.finalQuantityBuy);
+ }
+
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
+    this.cartService.addToCart(product, this.finalQuantityBuy);
     this.router.navigate(['/cart']);
-    window.alert('Your product has been added to the cart!');
+    window.alert('Sản phẩm của bạn đã được thêm vào giỏ hàng!');
   }
 }
