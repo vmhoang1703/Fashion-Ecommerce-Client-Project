@@ -21,6 +21,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from './components/cart/cart.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'blogs', component: BlogComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'cart/payment', component: PaymentComponent },
   {
     path: 'admin',
     component: AdminComponent,

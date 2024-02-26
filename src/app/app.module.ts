@@ -22,6 +22,7 @@ import { LoginModalService } from './services/login-modal.service';
 import { ProductService } from './services/product.service';
 import { FileUploadService } from './services/file-upload.service';
 import { CollectionService } from './services/collection.service';
+import { VietnamService } from './services/vietnam.service';
 import { CartService } from './services/cart.service';
 
 // Import Guards
@@ -117,7 +118,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     LoginGuard,
     FileUploadService,
     CollectionService,
-    CartService
+    CartService,
+    VietnamService
   ],
   bootstrap: [AppComponent],
 })

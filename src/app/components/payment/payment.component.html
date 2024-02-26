@@ -1,1 +1,113 @@
-<p>payment works!</p>
+<div class="container my-3" style="min-height: 100vh">
+  <nav aria-label="breadcrumb" class="animate__animated animate__bounceInLeft">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
+      <li class="breadcrumb-item">
+        <a
+          class="link-body-emphasis fw-semibold text-decoration-none"
+          routerLink="/products"
+          >Sản phẩm</a
+        >
+      </li>
+      <li class="breadcrumb-item">
+        <a
+          class="link-body-emphasis fw-semibold text-decoration-none"
+          routerLink="/cart"
+          >Giỏ hàng</a
+        >
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Thanh toán</li>
+    </ol>
+  </nav>
+  <div class="col-5">
+    <h3 class="mb-4">Thông tin đơn hàng</h3>
+    <div class="mb-4">
+      <label for="fullname" class="form-label"
+        >Họ và tên:
+        <span class="text-danger">*</span>
+      </label>
+      <input type="text" class="form-control" name="fullname" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="phone" class="form-label"
+        >Số điện thoại:
+        <span class="text-danger">*</span>
+      </label>
+      <input type="tel" class="form-control" name="phone" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="province" class="form-label"
+        >Tỉnh/TP: <span class="text-danger">*</span></label
+      >
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        (change)="getProvinceSelected($event)"
+      >
+        <option selected disabled>Chọn tỉnh/TP</option>
+        <!-- Sử dụng ngFor để lặp qua các tỉnh/TP -->
+        <option
+          *ngFor="let province of provinces"
+          [value]="province.province_id"
+        >
+          {{ province.province_name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="district" class="form-label"
+        >Quận/Huyện: <span class="text-danger">*</span></label
+      >
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        (change)="getDistrictSelected($event)"
+      >
+        <option selected disabled>Chọn quận/huyện</option>
+        <!-- Sử dụng ngFor để lặp qua các tỉnh/TP -->
+        <option
+          *ngFor="let district of districts"
+          [value]="district.district_id"
+        >
+          {{ district.district_name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="ward" class="form-label"
+        >Phường/Xã: <span class="text-danger">*</span></label
+      >
+      <select class="form-select" aria-label="Default select example">
+        <option selected disabled>Chọn phường/xã</option>
+        <!-- Sử dụng ngFor để lặp qua các tỉnh/TP -->
+        <option *ngFor="let ward of wards" [value]="ward.ward_id">
+          {{ ward.ward_name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="address" class="form-label"
+        >Địa chỉ:
+        <span class="text-danger">*</span>
+      </label>
+      <input type="text" class="form-control" name="address" required />
+    </div>
+
+    <div class="form-check mb-5">
+      <label class="form-check-label exclude text-mobile-size-14">
+        <input
+          class="exclude form-check-input"
+          type="checkbox"
+          name="remember"
+        />
+        Lưu thông tin cho những lần mua hàng sau
+      </label>
+    </div>
+  </div>
+
+  <div class="col-7"></div>
+</div>

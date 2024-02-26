@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -16,9 +17,13 @@ export class CartComponent implements OnInit {
   taxPrice: number = 0;
   totalPrice: number = 0;
 
-  constructor(private cartService: CartService, private fb: FormBuilder) {}
+  constructor(
+    private cartService: CartService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.cartForm = this.fb.group({
       discountCode: [''],
     });
@@ -49,7 +54,7 @@ export class CartComponent implements OnInit {
 
   submitCart() {
     let exceededProducts: string[] = [];
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       if (item.product.quantity < item.quantityBuy) {
         exceededProducts.push(item.product.name);
       }
@@ -57,7 +62,11 @@ export class CartComponent implements OnInit {
 
     if (exceededProducts.length > 0) {
       const exceededProductsMessage = exceededProducts.join(', ');
-      window.alert(`Số lượng mua của sản phẩm "${exceededProductsMessage}" vượt quá số lượng có sẵn.`);
+      window.alert(
+        `Số lượng mua của sản phẩm "${exceededProductsMessage}" vượt quá số lượng có sẵn.`
+      );
+    } else {
+      this.router.navigate(['/cart/payment']);
     }
   }
 }
